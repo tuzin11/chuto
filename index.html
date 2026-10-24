@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#161918">
+  <title>Chutô — Descubra a palavra</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="dictionary.js" defer></script>
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Chutô, início"><img class="brand-icon" src="favicon.svg" alt="" width="34" height="34"><span>Chutô</span></a>
+    <span class="header-note">UM DESAFIO, CINCO LETRAS.</span>
+    <button class="icon-button" id="show-stats" aria-label="Estatísticas da sessão" title="Estatísticas da sessão">▥</button>
+    <button class="icon-button" id="help" aria-label="Como jogar">?</button>
+  </header>
+  <main>
+    <section class="intro">
+      <span class="eyebrow"><span></span> JOGO DE PALAVRAS</span>
+      <h1>Cada letra conta<span>.</span></h1>
+      <p>Uma palavra de cinco letras. Seis chances de descobrir.</p>
+    </section>
+    <div class="play-layout">
+      <aside class="guide">
+        <span class="section-label">O CAMINHO ATÉ A PALAVRA</span>
+        <h2>Siga as cores.</h2>
+        <p>A cada tentativa, você fica<br>mais perto da resposta.</p>
+        <div class="legend"><span class="example correct">A</span><div><strong>No lugar certo</strong><span>A letra e a posição estão certas.</span></div></div>
+        <div class="legend"><span class="example present">R</span><div><strong>Quase lá</strong><span>A letra está em outra posição.</span></div></div>
+        <div class="legend"><span class="example absent">T</span><div><strong>Fora da palavra</strong><span>Essa letra não está na resposta.</span></div></div>
+        <div class="tip"><span>↳</span> Vale pensar com calma.<br> Não tem cronômetro por aqui.</div>
+      </aside>
+      <section class="game" aria-label="Jogo Chutô">
+        <div class="board-heading"><span>ENCONTRE A PALAVRA</span><span id="attempt">01 <i>/ 06</i></span></div>
+        <div id="board" class="board" role="group" aria-label="Tabuleiro com seis tentativas"></div>
+        <p id="message" class="message" role="status" aria-live="polite">Digite uma palavra para começar.</p>
+        <div id="keyboard" class="keyboard" aria-label="Teclado virtual"></div>
+        <button id="restart" class="restart">↻ <span>Nova palavra</span></button>
+      </section>
+      <aside class="side-note"><span class="little-grid"><i></i><i></i><i></i><i></i><i></i></span><span>UM POUCO DE LÓGICA.<br>UM TANTO DE INTUIÇÃO.</span></aside>
+    </div>
+  </main>
+  <footer><span>Desenvolvido por Arthur Werlang Cunha</span><span>SEU TECLADO TAMBÉM JOGA <kbd>Enter</kbd> para confirmar</span></footer>
+  <dialog id="help-dialog"><button id="close-help" class="icon-button close" aria-label="Fechar instruções">×</button><span class="eyebrow">COMO JOGAR</span><h2>Descubra em seis tentativas.</h2><p>Digite uma palavra de cinco letras e pressione Enter. Verde indica letra na posição certa; amarelo indica letra em outra posição; preto indica que a letra não aparece na palavra.</p><p>Letras repetidas só recebem cor até a quantidade de vezes que aparecem na resposta. Acentos são desconsiderados: MAÇÃS vira MACAS.</p><p>Use as letras do teclado, Backspace para apagar e Enter para confirmar. Clique em uma casa da linha atual para editar uma letra.</p><button id="start-playing" class="primary">Vamos jogar</button></dialog>
+  <dialog id="stats-dialog" class="stats-dialog" aria-labelledby="stats-title">
+    <button id="close-stats" class="icon-button close" aria-label="Fechar estatísticas">×</button>
+    <h2 id="stats-title">progresso</h2>
+    <p class="session-caption">ESTATÍSTICAS DA SESSÃO</p>
+    <p id="stats-result" class="stats-result" role="status"></p>
+    <div class="stats-summary">
+      <div><strong id="stats-games">0</strong><span>jogos</span></div>
+      <div><strong id="stats-percent">0%</strong><span>de vitórias</span></div>
+      <div><strong id="stats-streak">0</strong><span>sequência<br>de vitórias</span></div>
+      <div><strong id="stats-best">0</strong><span>melhor<br>sequência</span></div>
+    </div>
+    <h3>distribuição de tentativas</h3>
+    <div id="stats-distribution" class="stats-distribution" aria-label="Distribuição de tentativas e derrotas"></div>
+    <div class="stats-actions"><span>Cada partida é um novo começo.</span><button id="stats-new-game" class="primary">Nova palavra ↗</button></div>
+  </dialog>
+</body>
+</html>
