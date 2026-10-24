@@ -2,6 +2,35 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const { scoreGuess, normalize, dictionary, answers } = require('./game.js');
 const { recordResult } = require('./game.js');
+const { drawGameImage } = require('./game.js');
+
+for (const mode of [1, 2, 4, 8]) {
+  test(`imagem do modo ${mode} inclui palpites, cores e todas as respostas`, () => {
+    const labels = [], fills = [];
+    const ctx = {
+      scale() {}, fillRect() {}, beginPath() {}, roundRect() {}, stroke() {},
+      fill() { fills.push(this.fillStyle); },
+      fillText(text) { labels.push(text); }
+    };
+    const canvas = { getContext: () => ctx };
+    const targets = ['TERMO', 'PRAIA', 'NUVEM', 'FESTA', 'VERDE', 'BRISA', 'CAMPO', 'TIGRE'].slice(0, mode);
+    const limit = mode === 1 ? 6 : mode === 2 ? 7 : mode === 4 ? 9 : 13;
+    const guesses = [
+      { word: 'TERMO', colors: targets.map(target => scoreGuess('TERMO', target)) },
+      { word: 'PRAIA', colors: targets.map((target, n) => n === 0 ? null : scoreGuess('PRAIA', target)) }
+    ];
+    drawGameImage(canvas, { mode, limit, targets, guesses, current: '     ', finished: true });
+    for (const target of targets) assert.ok(labels.includes(`Resposta: ${target}`));
+    assert.ok(labels.includes(`2/${limit} tentativas · ${mode < 4 ? 'Vitória' : 'Fim de jogo'}`));
+    assert.equal(fills.length, mode * limit * 5);
+    assert.ok(fills.includes('#84b487'));
+    // The solved first board must not receive PRAIA on its second row.
+    const letters = labels.filter(text => /^[A-Z]$/.test(text));
+    assert.equal(letters.slice(0, 5).join(''), 'TERMO');
+    assert.equal(letters.length, 5 + (mode - 1) * 10);
+    assert.ok(canvas.width > 0 && canvas.height > 0);
+  });
+}
 test('estatísticas contam vitórias, derrota, sequências e distribuição', () => {
   const initial = { games: 0, wins: 0, streak: 0, best: 0, distribution: Array(7).fill(0) };
   let stats = recordResult(initial, true, 2);

@@ -13,6 +13,7 @@
 <body>
   <header class="topbar">
     <a class="brand" href="./" aria-label="Chutô, início"><img class="brand-icon" src="favicon.svg" alt="" width="34" height="34"><span>Chutô</span></a>
+    <nav class="mode-tabs" aria-label="Modos de jogo"><button type="button" data-mode="1" aria-pressed="true" class="mode-tab selected">Chutô</button><button type="button" data-mode="2" aria-pressed="false" class="mode-tab">Chutô²</button><button type="button" data-mode="4" aria-pressed="false" class="mode-tab">Chutô⁴</button><button type="button" data-mode="8" aria-pressed="false" class="mode-tab">Chutô⁸</button></nav>
     <span class="header-note">UM DESAFIO, CINCO LETRAS.</span>
     <button class="icon-button" id="show-stats" aria-label="Estatísticas da sessão" title="Estatísticas da sessão">▥</button>
     <button class="icon-button" id="help" aria-label="Como jogar">?</button>
@@ -44,7 +45,7 @@
     </div>
   </main>
   <footer><span>Desenvolvido por Arthur Werlang Cunha</span><span>SEU TECLADO TAMBÉM JOGA <kbd>Enter</kbd> para confirmar</span></footer>
-  <dialog id="help-dialog"><button id="close-help" class="icon-button close" aria-label="Fechar instruções">×</button><span class="eyebrow">COMO JOGAR</span><h2>Descubra em seis tentativas.</h2><p>Digite uma palavra de cinco letras e pressione Enter. Verde indica letra na posição certa; amarelo indica letra em outra posição; preto indica que a letra não aparece na palavra.</p><p>Letras repetidas só recebem cor até a quantidade de vezes que aparecem na resposta. Acentos são desconsiderados: MAÇÃS vira MACAS.</p><p>Use as letras do teclado, Backspace para apagar e Enter para confirmar. Clique em uma casa da linha atual para editar uma letra.</p><button id="start-playing" class="primary">Vamos jogar</button></dialog>
+  <dialog id="help-dialog"><button id="close-help" class="icon-button close" aria-label="Fechar instruções">×</button><span class="eyebrow">COMO JOGAR</span><h2 id="help-title">Descubra em seis tentativas.</h2><p id="mode-help">Encontre uma palavra em até seis tentativas.</p><p>Digite uma palavra de cinco letras e pressione Enter. Verde indica letra na posição certa; amarelo indica letra em outra posição; preto indica que a letra não aparece na palavra.</p><p>Letras repetidas só recebem cor até a quantidade de vezes que aparecem na resposta. Acentos são desconsiderados: MAÇÃS vira MACAS.</p><p>Use as letras do teclado, Backspace para apagar e Enter para confirmar. Clique em uma casa da linha atual para editar uma letra.</p><button id="start-playing" class="primary">Vamos jogar</button></dialog>
   <dialog id="stats-dialog" class="stats-dialog" aria-labelledby="stats-title">
     <button id="close-stats" class="icon-button close" aria-label="Fechar estatísticas">×</button>
     <h2 id="stats-title">progresso</h2>
@@ -58,7 +59,8 @@
     </div>
     <h3>distribuição de tentativas</h3>
     <div id="stats-distribution" class="stats-distribution" aria-label="Distribuição de tentativas e derrotas"></div>
-    <div class="stats-actions"><span>Cada partida é um novo começo.</span><button id="stats-new-game" class="primary">Nova palavra ↗</button></div>
+    <div class="stats-actions"><button id="stats-share" class="share-button" type="button">Compartilhar ↓</button><button id="stats-new-game" class="primary">Nova palavra ↗</button></div>
+    <p id="share-status" class="share-status" role="status" aria-live="polite"></p>
   </dialog>
 </body>
 </html>
