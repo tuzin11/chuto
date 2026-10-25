@@ -59,11 +59,49 @@ test('dicionário amplo aceita palavras comuns, flexões e acentos', () => {
   assert.ok(!dictionary.has('ZZZZZ'));
 });
 test('ampliação inclui flexões verificadas no corpus', () => {
-  assert.ok(dictionary.size >= 13701);
+  assert.ok(dictionary.size >= 11000);
   for (const word of ['abane', 'abate', 'abono', 'achou', 'amola', 'assou', 'bebam', 'bebas', 'coube', 'cozeu', 'criem', 'doíam', 'freia', 'giram', 'houve', 'mexeu', 'nasce', 'ouçam', 'pediu', 'rezou', 'tosse', 'traze', 'usava', 'zomba']) {
     assert.ok(dictionary.has(normalize(word)), word);
   }
   assert.equal(dictionary.has('casa'), false);
   assert.equal(dictionary.has('banana'), false);
   assert.equal(dictionary.has('A-B-C'), false);
+});
+const { createWordDraw } = require('./game.js');
+test('sorteio esgota respostas sem repetir, inclusive entre modos e recargas', () => {
+  const data = new Map();
+  const storage = { getItem: key => data.get(key), setItem: (key, value) => data.set(key, value) };
+  let draw = createWordDraw({ storage, random: () => 0 });
+  const seen = [...draw(1), ...draw(2), ...draw(4), ...draw(8)];
+  draw = createWordDraw({ storage, random: () => 0 });
+  while (seen.length < answers.length) seen.push(...draw(Math.min(8, answers.length - seen.length)));
+  assert.equal(new Set(seen).size, answers.length);
+  const next = draw(8);
+  assert.equal(new Set(next).size, 8);
+  assert.ok(next.every(word => !seen.slice(-8).includes(word)));
+});
+test('sorteio tolera armazenamento bloqueado e dados corrompidos', () => {
+  for (const storage of [undefined, { getItem() { return '{'; }, setItem() { throw Error('blocked'); } }, { getItem() { return JSON.stringify({ used: [null, 'XXXXX'], recent: [] }); }, setItem() {} }]) {
+    const draw = createWordDraw({ storage });
+    const result = [...draw(8), ...draw(8)];
+    assert.equal(new Set(result).size, 16);
+    assert.ok(result.every(word => dictionary.has(word)));
+  }
+});
+test('sorteio atravessa ciclos sem duplicar palavras na mesma partida', () => {
+  const pool = answers.slice(0, 10);
+  const draw = createWordDraw({ pool, random: () => 0 });
+  for (let i = 0; i < 20; i++) assert.equal(new Set(draw(8)).size, 8);
+});
+
+test('dicionario corresponde integralmente a auditoria lexical e exclui ruido', () => {
+  const audit = require('./dictionary-audit.json');
+  assert.deepEqual([...dictionary].sort(), Object.keys(audit.retained).sort());
+  assert.equal(dictionary.size, audit.retained_count);
+  for (const word of ['ABGLT', 'ASCII', 'AARAO', 'ABNER', 'ALICE', 'ADOLF', 'XVIII', 'XXIII', 'XCIII']) assert.equal(dictionary.has(word), false, word);
+  for (const word of audit.removed) assert.equal(dictionary.has(word), false, word);
+  for (const entry of Object.values(audit.retained)) {
+    assert.equal(entry.spelling, entry.spelling.toLowerCase());
+    assert.ok(dictionary.has(normalize(entry.spelling)));
+  }
 });

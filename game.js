@@ -3,6 +3,38 @@ const WORDS = typeof module !== "undefined" ? require("./dictionary.js") : globa
 const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase();
 const dictionary = new Set(normalize(WORDS).split(/\s+/).filter(word => /^[A-Z]{5}$/.test(word)));
 const answers = 'AMIGO TERMO PRAIA LIVRO SONHO NUVEM FESTA VERDE BRISA CAMPO TIGRE PEDRA MUNDO CHAVE FRUTA NOITE TEMPO PONTE CALMA FLORA LEQUE FAROL AREIA FOLHA CANTO SORTE PIANO LUGAR SABOR MAGIA'.split(' ');
+// Keep answers curated: the larger dictionary also contains uncommon inflections.
+answers.push(...'ABRIL ACASO ACENO ACIMA ACRES ADEUS AFETO AGORA AGUDO AINDA AJUDA ALBUM ALGUM ALUNO AMADO AMBOS AMPLO ANDAR ANEXO ANIMO ANJOS ANTES APOIO ARAME ARCAR ARDOR ASTRO ATIVO ATLAS ATRAS ATUAL AUDIO AUTOR AVIAO AVISO BAIXO BALAO BALDE BANCO BANHO BARCO BARRA BARRO BASTA BATOM BEIJO BEIRA BELOS BICHO BOLSA BOMBA BORDA BRACO BRAVO BREVE BRILHO BROTO BRUTO BUSCA CABER CABRA CACAU CAIXA CALDO CALOR CANAL CAPAZ CAPIM CARGA CARNE CARRO CARTA CASAL CASCA CAUSA CEDER CENSO CERCA CERTO CESTA CICLO CINCO CINTO CINZA CLARO CLIMA CLUBE COBRA COFRE COISA COLAR COMER CONTO CORAL CORDA CORPO CORTE COSTA COURO CRAVO CRIME CRISE CRUEL CULPA CURSO CURTO CURVA DADOS DANCA DEIXA DENTE DESDE DEVER DIABO DIGNO DISCO DIZER DOBRO DOIDO DONOS DOUTO DRAMA DUPLA DUQUE DURAR DUVIDA EIXOS ELITE ENFIM ENTRE ENVIO ERROS ESCOL ESTAR ETAPA EXATO EXITO EXTRA FACIL FALHA FALTA FALSO FARTO FATAL FAUNA FEBRE FEIRA FEITO FELIZ FERAS FERRO FICAR FILHO FILME FINAL FIRME FISICO FITAS FIXAR FOGAO FOLIA FONTE FORCA FORMA FORNO FORTE FORUM FOSSO FREIO FRENTE FRITO FUGAZ FUNDO FURIA FUSAO GARRA GASTO GEADA GELAR GEMAS GENIO GENTE GESTO GIRAR GLOBO GOLPE GORDO GOSTO GOZAR GRAMA GRATO GRAVE GRILO GRUPO GUIAR HAVER HEROI HONRA HOTEL HUMOR IDEAL IDOSO IGUAL ILHAS IMPAR INDIO IRMAO JANTA JARRA JOGAR JOVEM JULHO JUNHO JUSTO LABIO LACOS LADOS LAGOA LAPIS LARGO LASER LATIM LAZER LEGAL LEMAS LENTE LENTO LESAO LEVAR LIDAR LIMAO LIMPO LINDA LINHA LISTA LIXAR LOBOS LOCAL LOIRA LONGE LOUCO LOUSA LUCRO LUGAR LUNAR LUTAR MACIO MADRE MAIOR MALHA MAMAE MANGA MANHA MANSO MANTO MARCA MARCO MARES MASSA MATAR MEDIA MEDIR MEIGO MENOR MENOS MENTE MESMO METAL METRO MEXER MILHO MINHA MIOLO MOEDA MOLDE MOLHO MONTE MORAL MORAR MORNO MORTE MOTOR MOVER MUITO MURAL MUSGO NADAR NARIZ NATAL NAVAL NAVIO NEGAR NEGRO NENEM NESTE NETOS NIVEL NOBRE NORTE NOSSA NOTAR NOVOS NUNCA OBTER OESTE OLHAR ONTEM OPCAO ORDEM ORGAO OSSOS OUVIR OVALO OVELHA PADRE PAGAR PALCO PALHA PALMA PAPAI PAPEL PARAR PARDO PARTE PASSO PASTA PATIO PAUSA PEITO PEIXE PELAS PENAS PENSO PERDA PERTO PESAR PIANO PICAR PILHA PINHO PINTO PIRES PISTA PLACA PLANO PLENO PODER POEMA POETA POLVO POMAR POMBO PONTO PORCO PORTA PORTO POSSE POSTE PRADO PRAGA PRAZO PRECO PREGO PRESA PRETO PRIMA PRIMO PROSA PROVA PUDIM PULAR PULGA PULSO PUNHO QUASE QUEDA QUEIJO QUERO QUINA QUOTA RADIO RAIVA RAMOS RAPAZ RASGO RASTO RAZAO REBANHO RECUO REDES REGRA REINO RENDA RENTE RESTO RETAS REVER RIMAR RITMO RIVAL ROCHA RODAR ROLHA ROSAS ROSTO ROUPA SABER SACAR SACOS SAGAZ SAIDA SALAO SALDO SALSA SALTO SALVA SANTO SAUDE SECAR SEDAS SEGUE SEIVA SELVA SENSO SERIO SERRA SERVE SETOR SIGLA SINAL SINTO SITIO SOBRA SOBRE SOCIO SOGRA SOLAR SOLTO SOMAR SONDA SOPRO SORO SOTAO SUAVE SUBIR SUCOS SUJAR SUPER SURDO SURFE SURTO SUSTO TABUA TANGA TANTO TARDE TAXAS TECER TECLA TELAS TEMER TENDA TENIS TENRO TENSO TERRA TESTA TEXTO TINTA TIRAR TOCAR TODAS TOMAR TONTO TORRE TORTA TOTAL TOUCA TOURO TRACO TRAJE TRAMA TREMO TRENO TREVO TRIBO TRIGO TRILHA TROCA TRONO TRUCO TURMA TURNO UNIAO UNICO UNIDO URUBU USADO USINA UTENS UVAIS VAGAO VAGAS VALER VALOR VAPOR VARAL VASOS VASTO VAZIO VELAS VELHO VELOZ VENDA VENTO VERAO VERBO VERSO VESTE VEZES VIDEO VIDRO VIGIA VILAO VINHO VINTE VIOLA VIRAR VIRUS VISAR VISTA VITAL VIUVA VIVER VOLTA VOTAR VULTO XAMPU ZEBRA ZELAR'.split(' ').filter(word => dictionary.has(word) && !answers.includes(word)));
+const answerPool = [...new Set(answers)];
+function createWordDraw({ storage, random = Math.random, pool = answerPool } = {}) {
+  const key = 'chuto-word-history-v1';
+  const words = [...new Set(pool)];
+  let used = [], recent = [];
+  try {
+    const saved = JSON.parse(storage.getItem(key));
+    if (Array.isArray(saved?.used) && Array.isArray(saved?.recent)) {
+      used = [...new Set(saved.used.filter(word => words.includes(word)))];
+      recent = saved.recent.filter(word => words.includes(word)).slice(-8);
+    }
+  } catch (_) { /* Storage can be unavailable in private or local-file contexts. */ }
+  return function draw(count) {
+    if (!Number.isInteger(count) || count < 1 || count > words.length) throw new RangeError('Invalid word count');
+    const selected = [];
+    while (selected.length < count) {
+      let available = words.filter(word => !used.includes(word) && !selected.includes(word));
+      if (!available.length) {
+        used = [];
+        available = words.filter(word => !selected.includes(word) && !recent.includes(word));
+        if (!available.length) available = words.filter(word => !selected.includes(word));
+      }
+      const word = available[Math.floor(random() * available.length)];
+      selected.push(word); used.push(word);
+      recent = [...recent, word].slice(-8);
+    }
+    try { storage.setItem(key, JSON.stringify({ used, recent })); } catch (_) {}
+    return selected;
+  };
+}
 function scoreGuess(guess, answer) {
   const result = Array(5).fill('absent');
   const remaining = {};
@@ -67,7 +99,7 @@ function drawGameImage(canvas, { mode, limit, targets, guesses, current, finishe
   text('Verde: posição certa  ·  Amarelo: outra posição', padding, height - 28, '12px sans-serif', '#8f9791');
   return canvas;
 }
-if (typeof module !== 'undefined') module.exports = { scoreGuess, normalize, dictionary, answers, recordResult, drawGameImage };
+if (typeof module !== 'undefined') module.exports = { scoreGuess, normalize, dictionary, answers, recordResult, drawGameImage, createWordDraw };
 if (typeof document !== 'undefined') {
   const board = document.getElementById('board');
   const keyboard = document.getElementById('keyboard');
@@ -76,6 +108,9 @@ if (typeof document !== 'undefined') {
   const statsDialog = document.getElementById('stats-dialog');
   let mode = 1, limit = 6, targets = [], solved = [], boardKeys = [];
   const sessions = new Map();
+  let wordStorage;
+  try { wordStorage = window.localStorage; } catch (_) {}
+  const drawWords = createWordDraw({ storage: wordStorage });
   let stats = { games: 0, wins: 0, streak: 0, best: 0, distribution: Array(7).fill(0) };
   let lastResult = null;
   function showStats() {
@@ -241,8 +276,7 @@ if (typeof document !== 'undefined') {
   }
   function restart() {
     if (revealing) return;
-    const options = answers.filter(word => !targets.includes(word));
-    targets = Array.from({ length: mode }, () => options.splice(Math.floor(Math.random() * options.length), 1)[0]);
+    targets = drawWords(mode);
     solved = Array(mode).fill(false); boardKeys = Array.from({ length: mode }, () => ({}));
     guesses = []; current = '     '; cursor = 0; finished = false;
     lastResult = null;
