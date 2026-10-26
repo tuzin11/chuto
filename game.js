@@ -230,6 +230,7 @@ if (typeof document !== 'undefined') {
     if (reopenFinishedStats()) return;
     if (key === 'ENTER') {
       if (!/^[A-Z]{5}$/.test(current)) return say('Complete as cinco letras antes de confirmar.');
+      if (current === 'TUZIN') return say('O GOAT.');
       if (!dictionary.has(current)) return say('Palavra fora do dicionário. Tente outra.');
       if (guesses.some(g => g.word === current)) return say('Você já tentou essa palavra. Experimente outra.');
       const colors = targets.map((target, n) => solved[n] ? null : scoreGuess(current, target));
