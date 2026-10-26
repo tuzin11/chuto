@@ -159,3 +159,24 @@ test('finished game reopens stats on any tile, board space or virtual control wi
     assert.equal(row(app.board()[0], 0), 'AMIGO');
   }
 });
+
+for (const [mode, tab] of [[1, 0], [2, 1], [4, 2], [8, 3]]) {
+  test(`mode ${mode}: only current rows of unsolved boards are enabled`, async () => {
+    const app = setup();
+    if (tab) app.tabs[tab].listeners.click();
+    const check = (attempt, solved = []) => app.board().forEach((panel, n) => {
+      panel.children.at(-1).children.forEach((tile, i) => {
+        assert.equal(tile.disabled, solved.includes(n) || Math.floor(i / 5) !== attempt);
+      });
+    });
+    check(0);
+    await guess(app, 'ZZZZZ'); // Rejected guesses must not unlock the next row.
+    check(0);
+    for (let i = 0; i < 5; i++) await app.get('keyboard').querySelectorAll('[data-key]').find(key => key.dataset.key === 'BACKSPACE').listeners.click();
+    const pending = guess(app, 'TERMO');
+    await pending;
+    check(1, mode === 1 ? [] : [0]);
+    app.get('restart').listeners.click();
+    check(0);
+  });
+}

@@ -180,6 +180,7 @@ if (typeof document !== 'undefined') {
       const n = Math.floor(i / (limit * 5)), row = Math.floor((i % (limit * 5)) / 5), col = i % 5;
       const entry = guesses[row];
       const past = entry && entry.colors[n] ? { word: entry.word, colors: entry.colors[n] } : null;
+      tile.disabled = finished || revealing || solved[n] || row !== guesses.length;
       tile.textContent = past ? past.word[col] : !solved[n] && row === guesses.length ? current[col] || '' : '';
       tile.className = 'tile' + (past ? ' ' + past.colors[col] : !finished && !solved[n] && row === guesses.length ? ' active' + (col === Math.min(cursor, 4) ? ' selected' : '') : '');
       tile.setAttribute('aria-label', `Palavra ${n + 1}, tentativa ${row + 1}, letra ${col + 1}: ${tile.textContent || 'vazia'}${past ? ', ' + ({ correct: 'posição correta', present: 'outra posição', absent: 'ausente' })[past.colors[col]] : ''}`);
@@ -233,6 +234,7 @@ if (typeof document !== 'undefined') {
       if (guesses.some(g => g.word === current)) return say('Você já tentou essa palavra. Experimente outra.');
       const colors = targets.map((target, n) => solved[n] ? null : scoreGuess(current, target));
       revealing = true;
+      tiles.forEach(tile => { tile.disabled = true; });
       board.setAttribute('aria-busy', 'true');
       document.getElementById('restart').disabled = true;
       say('Revelando as letras…');
