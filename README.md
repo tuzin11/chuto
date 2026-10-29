@@ -4,12 +4,13 @@ Jogo de palavras em português para navegador de computador. Abra `index.html` d
 
 - Chutô: uma palavra em seis tentativas. Chutô²: duas palavras em sete tentativas. Chutô⁴: quatro palavras em nove tentativas. Chutô⁸: oito palavras em treze tentativas.
 - Nos modos paralelos, cada palpite vale para todas as palavras ainda não resolvidas. As faixas do teclado mostram as pistas de cada tabuleiro na ordem de leitura.
+- Ao concluir o jogo, o teclado fica oculto e Compartilhar é a única ação da partida. O modo selecionado também é restaurado ao reabrir a página.
 - Progresso e estatísticas de cada modo ficam salvos neste navegador, inclusive ao recarregar ou fechar a página.
 - Verde: letra na posição correta; amarelo: letra em outra posição; preto: letra ausente.
 - Letras repetidas respeitam a quantidade de ocorrências na resposta.
 - Use o teclado físico ou os botões. Enter confirma e Backspace apaga.
 - Acentos e cedilha são desconsiderados. O dicionário local em `dictionary.js` contém 11.905 palavras de cinco letras e funciona sem conexão.
-- Um desafio fixo por dia em cada modo, igual para todos. A troca ocorre às 00:00 no horário de Brasília, inclusive com a página aberta. O botão Jogo do dia retoma a partida atual.
+- Um desafio fixo por dia em cada modo, igual para todos. A troca ocorre às 00:00 no horário de Brasília, inclusive com a página aberta. Não existe controle para escolher ou gerar outra palavra no mesmo dia.
 
 Layout responsivo: quatro tabuleiros lado a lado no desktop e em duas colunas no celular. Fontes do Google Fonts são opcionais; fontes locais são usadas se não houver conexão.
 

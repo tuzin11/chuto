@@ -9,3 +9,6 @@ body[data-mode="8"] .play-layout{display:block;max-width:1280px;padding:0 30px}b
 
 .tile:disabled{cursor:default;opacity:1}
 .tile:disabled:not(.correct):not(.present):not(.absent){background:#1a1f1b;border-color:#2a322c;color:var(--muted)}
+
+[hidden]{display:none!important}
+#share-result{display:block;margin:20px auto}

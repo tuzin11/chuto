@@ -144,6 +144,7 @@ if (typeof document !== 'undefined') {
   let stats = { games: 0, wins: 0, streak: 0, best: 0, distribution: Array(7).fill(0) };
   let lastResult = null;
   function showStats() {
+    document.getElementById('stats-share').hidden = !finished;
     document.getElementById('share-status').textContent = '';
     document.getElementById('stats-games').textContent = stats.games;
     document.getElementById('stats-percent').textContent = `${stats.games ? Math.round(stats.wins / stats.games * 100) : 0}%`;
@@ -231,6 +232,8 @@ if (typeof document !== 'undefined') {
       const label = panel.querySelector('.word-label');
       if (label) label.textContent = `PALAVRA ${n + 1}${solved[n] ? ' ✓' : ''}`;
     });
+    keyboard.hidden = finished;
+    document.getElementById('share-result').hidden = !finished;
     document.getElementById('attempt').innerHTML = `${String(Math.min(guesses.length + 1, limit)).padStart(2, '0')} <i>/ ${String(limit).padStart(2, '0')}</i>`;
   }
   async function reveal(colors) {
@@ -268,7 +271,6 @@ if (typeof document !== 'undefined') {
       revealing = true;
       tiles.forEach(tile => { tile.disabled = true; });
       board.setAttribute('aria-busy', 'true');
-      document.getElementById('restart').disabled = true;
       say('Revelando as letras…');
       await reveal(colors);
       guesses.push({ word: current, colors });
@@ -290,7 +292,6 @@ if (typeof document !== 'undefined') {
       current = '     '; cursor = 0;
       revealing = false;
       board.setAttribute('aria-busy', 'false');
-      document.getElementById('restart').disabled = false;
     } else if (key === 'BACKSPACE') {
       if (current[cursor] === ' ' && cursor > 0) cursor--;
       current = current.slice(0, cursor) + ' ' + current.slice(cursor + 1);
@@ -337,7 +338,9 @@ if (typeof document !== 'undefined') {
     if (revealing || next === mode) return;
     saveSession();
     sessions.set(mode, { targets, solved, boardKeys, guesses, current, cursor, finished, stats, lastResult, text: message.textContent, success: message.classList.contains('success') });
-    mode = next; limit = mode === 1 ? 6 : mode === 2 ? 7 : mode === 4 ? 9 : 13;
+    mode = next;
+    try { wordStorage.setItem('chuto-active-mode-v1', String(mode)); } catch (_) {}
+    limit = mode === 1 ? 6 : mode === 2 ? 7 : mode === 4 ? 9 : 13;
     document.body.dataset.mode = mode;
     document.querySelectorAll('[data-mode]').forEach(tab => {
       const selected = Number(tab.dataset.mode) === mode;
@@ -347,7 +350,6 @@ if (typeof document !== 'undefined') {
     document.querySelector('.board-heading > span').textContent = mode === 1 ? 'ENCONTRE A PALAVRA' : `ENCONTRE AS ${mode} PALAVRAS`;
     document.getElementById('help-title').textContent = `Descubra em ${limit} tentativas.`;
     document.getElementById('mode-help').textContent = mode === 1 ? 'Encontre uma palavra em até seis tentativas.' : `Cada palpite vale para as ${mode} palavras ao mesmo tempo. As cores são independentes em cada tabuleiro e nas faixas do teclado, da esquerda para a direita. Palavras resolvidas param de receber palpites. Você tem ${limit} tentativas para resolver todas.`;
-    document.querySelector('#restart span').textContent = 'Jogo do dia';
     const saved = sessions.get(mode);
     if (saved) {
       ({ targets, solved, boardKeys, guesses, current, cursor, finished, stats, lastResult } = saved);
@@ -363,11 +365,10 @@ if (typeof document !== 'undefined') {
     const key = normalize(event.key);
     if (/^[A-Z]$/.test(key) || ['ENTER', 'BACKSPACE', 'ARROWLEFT', 'ARROWRIGHT'].includes(key)) { event.preventDefault(); input(key); }
   });
-  document.getElementById('restart').addEventListener('click', restart);
-  document.getElementById('stats-share').addEventListener('click', async () => {
+  async function shareGame() {
     const button = document.getElementById('stats-share');
     const status = document.getElementById('share-status');
-    if (button.disabled || revealing) return;
+    if (!finished || button.disabled || revealing) return;
     button.disabled = true; status.textContent = 'Gerando imagem…';
     try {
       const canvas = drawGameImage(document.createElement('canvas'), { mode, limit, targets, guesses, current, finished });
@@ -381,14 +382,22 @@ if (typeof document !== 'undefined') {
     } catch (error) {
       status.textContent = 'Não foi possível gerar a imagem. Tente novamente.';
     } finally { button.disabled = false; }
-  });
+  }
+  document.getElementById('stats-share').addEventListener('click', shareGame);
+  document.getElementById('share-result').addEventListener('click', shareGame);
   document.getElementById('show-stats').addEventListener('click', () => { if (!revealing) showStats(); });
   document.getElementById('close-stats').addEventListener('click', () => statsDialog.close());
-  document.getElementById('stats-new-game').addEventListener('click', () => { statsDialog.close(); restart(); });
   document.getElementById('help').addEventListener('click', () => dialog.showModal());
   document.getElementById('close-help').addEventListener('click', () => dialog.close());
   document.getElementById('start-playing').addEventListener('click', () => dialog.close());
+  let initialMode = 1;
+  try { initialMode = Number(wordStorage.getItem('chuto-active-mode-v1')) || 1; } catch (_) {}
   restart();
+  if ([2, 4, 8].includes(initialMode)) {
+    statsDialog.close();
+    switchMode(initialMode);
+    if (finished) showStats();
+  }
   if (typeof setInterval === 'function') setInterval(checkDay, 1000);
   document.addEventListener('visibilitychange', checkDay);
   if (window.addEventListener) window.addEventListener('focus', checkDay);

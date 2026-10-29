@@ -6,9 +6,9 @@
   <meta name="theme-color" content="#161918">
   <title>Chutô — Descubra a palavra</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="style.css?v=2967c0af2a59">
+  <link rel="stylesheet" href="style.css?v=81588e3eb326">
   <script src="dictionary.js?v=797e2bfea448" defer></script>
-  <script src="game.js?v=f6367904148c" defer></script>
+  <script src="game.js?v=cce3cb8611c2" defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -39,7 +39,7 @@
         <div id="board" class="board" role="group" aria-label="Tabuleiro com seis tentativas"></div>
         <p id="message" class="message" role="status" aria-live="polite">Digite uma palavra para começar.</p>
         <div id="keyboard" class="keyboard" aria-label="Teclado virtual"></div>
-        <button id="restart" class="restart">↻ <span>Jogo do dia</span></button>
+        <button id="share-result" class="share-button" type="button" hidden>Compartilhar ↓</button>
       </section>
       <aside class="side-note"><span class="little-grid"><i></i><i></i><i></i><i></i><i></i></span><span>UM POUCO DE LÓGICA.<br>UM TANTO DE INTUIÇÃO.</span></aside>
     </div>
@@ -59,7 +59,7 @@
     </div>
     <h3>distribuição de tentativas</h3>
     <div id="stats-distribution" class="stats-distribution" aria-label="Distribuição de tentativas e derrotas"></div>
-    <div class="stats-actions"><button id="stats-share" class="share-button" type="button">Compartilhar ↓</button><button id="stats-new-game" class="primary">Resultado do dia</button></div>
+    <div class="stats-actions"><button id="stats-share" class="share-button" type="button">Compartilhar ↓</button></div>
     <p id="share-status" class="share-status" role="status" aria-live="polite"></p>
   </dialog>
 </body>

@@ -72,13 +72,13 @@ test('quartet accepts nine guesses and records defeat in the final distribution 
   assert.equal(app.get('stats-percent').textContent, '0%');
   assert.equal(app.get('stats-distribution').children.length, 10);
   assert.equal(app.get('stats-distribution').children[9].children[1].textContent, 1);
-  app.get('stats-new-game').listeners.click();
-  assert.equal(app.get('stats-dialog').open, true);
+  app.get('close-stats').listeners.click();
+  assert.equal(app.get('stats-dialog').open, false);
   assert.equal(row(app.board()[0], 0), 'NUVEM');
 });
 
 for (const [mode, tab, limit] of [[1, 0, 6], [2, 1, 7], [4, 2, 9], [8, 3, 13]]) {
-  test(`mode ${mode}: finished game reopens stats on physical and virtual letters until restart`, async () => {
+  test(`mode ${mode}: finished game reopens stats on physical and virtual letters for the rest of the day`, async () => {
     const app = setup();
     if (tab) app.tabs[tab].listeners.click();
     const targets = mode === 1 ? ['AMIGO'] : ['TERMO', 'PRAIA', 'LIVRO', 'SONHO', 'NUVEM', 'FESTA', 'VERDE', 'BRISA'].slice(0, mode);
@@ -96,7 +96,7 @@ for (const [mode, tab, limit] of [[1, 0, 6], [2, 1, 7], [4, 2, 9], [8, 3, 13]]) 
     app.events.keydown({ key: 'z', target: { closest: () => false }, preventDefault() {} });
     assert.equal(app.get('stats-dialog').open, true);
     assert.equal(app.get('stats-games').textContent, 1);
-    app.get('stats-new-game').listeners.click();
+    app.get('close-stats').listeners.click();
     await letter.listeners.click();
     assert.equal(app.get('stats-dialog').open, true);
     assert.equal(row(app.board()[0], 0), targets[0]);
@@ -177,7 +177,6 @@ for (const [mode, tab] of [[1, 0], [2, 1], [4, 2], [8, 3]]) {
     const pending = guess(app, 'TERMO');
     await pending;
     check(1, mode === 1 ? [] : [0]);
-    app.get('restart').listeners.click();
     check(1, mode === 1 ? [] : [0]);
   });
 }
@@ -193,7 +192,7 @@ test('daily progress and completed result survive reload without counting twice'
   app = setup({ storage });
   assert.equal(app.get('stats-games').textContent, 1);
   assert.equal(app.get('stats-dialog').open, true);
-  app.get('stats-new-game').listeners.click();
+  app.get('close-stats').listeners.click();
   assert.equal(app.get('stats-games').textContent, 1);
   assert.equal(row(app.board()[0], 1), 'AMIGO');
 });
@@ -213,4 +212,51 @@ test('midnight in Brasilia resets all modes and keeps statistics', async () => {
   app.get('show-stats').listeners.click();
   assert.equal(app.get('stats-games').textContent, 1);
   assert.ok(storage.has('chuto-daily-v1:2026-10-29'));
+});
+
+
+test('all users get the same daily word, regardless of random or browser history', async () => {
+  const first = setup(), second = setup({ storage: new Map([['chuto-word-history-v1', JSON.stringify({ used: ['AMIGO'], recent: ['AMIGO'] })]]) });
+  for (const app of [first, second]) {
+    await guess(app, 'AMIGO');
+    assert.equal(app.get('stats-percent').textContent, '100%');
+    assert.equal(app.get('keyboard').hidden, true);
+    assert.equal(app.get('share-result').hidden, false);
+    assert.equal(app.get('restart').listeners.click, undefined);
+    assert.equal(app.get('stats-new-game').listeners.click, undefined);
+  }
+});
+
+test('completed game stays locked and shareable in a new browser session', async () => {
+  const storage = new Map();
+  let app = setup({ storage });
+  assert.equal(app.get('share-result').hidden, true);
+  await guess(app, 'AMIGO');
+  app = setup({ storage });
+  assert.equal(row(app.board()[0], 0), 'AMIGO');
+  assert.equal(app.get('keyboard').hidden, true);
+  assert.equal(app.get('share-result').hidden, false);
+  app.get('close-stats').listeners.click();
+  await guess(app, 'TERMO');
+  assert.equal(row(app.board()[0], 0), 'AMIGO');
+  assert.equal(app.get('stats-games').textContent, 1);
+});
+
+
+test('reload resumes the selected mode and its completed daily game', async () => {
+  const storage = new Map();
+  let app = setup({ storage });
+  app.tabs[1].listeners.click();
+  await guess(app, 'TERMO');
+  app = setup({ storage });
+  assert.equal(app.board().length, 2);
+  assert.equal(row(app.board()[1], 0), 'TERMO');
+  await guess(app, 'PRAIA');
+  app = setup({ storage });
+  assert.equal(app.board().length, 2);
+  assert.equal(row(app.board()[1], 1), 'PRAIA');
+  assert.equal(app.get('stats-dialog').open, true);
+  assert.equal(app.get('keyboard').hidden, true);
+  assert.equal(app.get('share-result').hidden, false);
+  assert.equal(app.get('stats-games').textContent, 1);
 });
