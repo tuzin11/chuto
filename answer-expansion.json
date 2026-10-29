@@ -1,0 +1,2826 @@
+{
+  "source": "dictionary-audit.json / VERO pt_BR",
+  "criterion": "Curated Brazilian Portuguese vocabulary, five letters after accent normalization, with local lexical evidence.",
+  "added": {
+    "ABACO": {
+      "spelling": "ábaco",
+      "stem": "ábaco"
+    },
+    "ABADA": {
+      "spelling": "abadá",
+      "stem": "abadá"
+    },
+    "ABADE": {
+      "spelling": "abade",
+      "stem": "abadar"
+    },
+    "ABALO": {
+      "spelling": "abalo",
+      "stem": "abalar"
+    },
+    "ABATE": {
+      "spelling": "abatê",
+      "stem": "bater"
+    },
+    "ABETO": {
+      "spelling": "abeto",
+      "stem": "abeto"
+    },
+    "ABRIR": {
+      "spelling": "abrir",
+      "stem": "abrir"
+    },
+    "ABUSO": {
+      "spelling": "abuso",
+      "stem": "abusar"
+    },
+    "ACIDO": {
+      "spelling": "acido",
+      "stem": "acidar"
+    },
+    "ACOES": {
+      "spelling": "ações",
+      "stem": "ação"
+    },
+    "ACUAR": {
+      "spelling": "acuar",
+      "stem": "acuar"
+    },
+    "ADAGA": {
+      "spelling": "adaga",
+      "stem": "adage"
+    },
+    "ADIAR": {
+      "spelling": "adiar",
+      "stem": "adiar"
+    },
+    "ADUBO": {
+      "spelling": "adubo",
+      "stem": "adubar"
+    },
+    "AEREO": {
+      "spelling": "aéreo",
+      "stem": "aéreo"
+    },
+    "AFAGO": {
+      "spelling": "afago",
+      "stem": "afagar"
+    },
+    "AFIAR": {
+      "spelling": "afiar",
+      "stem": "afiar"
+    },
+    "AFOGO": {
+      "spelling": "afogo",
+      "stem": "afogar"
+    },
+    "AGUAS": {
+      "spelling": "águas",
+      "stem": "água"
+    },
+    "AGUIA": {
+      "spelling": "águia",
+      "stem": "águia"
+    },
+    "AIPIM": {
+      "spelling": "aipim",
+      "stem": "aipim"
+    },
+    "ALCAS": {
+      "spelling": "alças",
+      "stem": "alçar"
+    },
+    "ALGAS": {
+      "spelling": "algas",
+      "stem": "algo"
+    },
+    "ALHOS": {
+      "spelling": "alhos",
+      "stem": "lho"
+    },
+    "ALIAS": {
+      "spelling": "alias",
+      "stem": "aliar"
+    },
+    "ALMAS": {
+      "spelling": "almas",
+      "stem": "almo"
+    },
+    "ALTAR": {
+      "spelling": "altar",
+      "stem": "altar"
+    },
+    "ALTAS": {
+      "spelling": "altas",
+      "stem": "alto"
+    },
+    "ALTOS": {
+      "spelling": "altos",
+      "stem": "alto"
+    },
+    "ALUGA": {
+      "spelling": "alugá",
+      "stem": "alugar"
+    },
+    "AMADA": {
+      "spelling": "amada",
+      "stem": "amar"
+    },
+    "AMEBA": {
+      "spelling": "ameba",
+      "stem": "ameba"
+    },
+    "AMENO": {
+      "spelling": "ameno",
+      "stem": "ameno"
+    },
+    "AMORA": {
+      "spelling": "amorá",
+      "stem": "morar"
+    },
+    "ANAIS": {
+      "spelling": "anais",
+      "stem": "anal"
+    },
+    "ANEXA": {
+      "spelling": "anexa",
+      "stem": "anexa"
+    },
+    "ANIMA": {
+      "spelling": "animá",
+      "stem": "animar"
+    },
+    "ANUAL": {
+      "spelling": "anual",
+      "stem": "anual"
+    },
+    "ANULA": {
+      "spelling": "anulá",
+      "stem": "anular"
+    },
+    "APAGA": {
+      "spelling": "apaga",
+      "stem": "apaga"
+    },
+    "APEGO": {
+      "spelling": "apego",
+      "stem": "apegar"
+    },
+    "APELO": {
+      "spelling": "apelo",
+      "stem": "apelo"
+    },
+    "ARADO": {
+      "spelling": "arado",
+      "stem": "aradar"
+    },
+    "ARARA": {
+      "spelling": "arara",
+      "stem": "arar"
+    },
+    "ARCOS": {
+      "spelling": "arcos",
+      "stem": "arcos"
+    },
+    "ARDER": {
+      "spelling": "arder",
+      "stem": "arder"
+    },
+    "AREAL": {
+      "spelling": "areal",
+      "stem": "areal"
+    },
+    "ARENA": {
+      "spelling": "arenã",
+      "stem": "arenã"
+    },
+    "ARFAR": {
+      "spelling": "arfar",
+      "stem": "arfar"
+    },
+    "ARMAR": {
+      "spelling": "armar",
+      "stem": "armar"
+    },
+    "ARMAS": {
+      "spelling": "armas",
+      "stem": "arma"
+    },
+    "AROMA": {
+      "spelling": "aromá",
+      "stem": "aromar"
+    },
+    "ARTES": {
+      "spelling": "artes",
+      "stem": "arte"
+    },
+    "ASILO": {
+      "spelling": "asilo",
+      "stem": "asilar"
+    },
+    "ASPAS": {
+      "spelling": "aspas",
+      "stem": "aspar"
+    },
+    "ASSAR": {
+      "spelling": "assar",
+      "stem": "assar"
+    },
+    "ASSIM": {
+      "spelling": "assim",
+      "stem": "assim"
+    },
+    "ATADO": {
+      "spelling": "atado",
+      "stem": "atar"
+    },
+    "ATEAR": {
+      "spelling": "atear",
+      "stem": "atear"
+    },
+    "ATRIZ": {
+      "spelling": "atriz",
+      "stem": "atriz"
+    },
+    "ATUAR": {
+      "spelling": "atuar",
+      "stem": "atuar"
+    },
+    "AVARA": {
+      "spelling": "avará",
+      "stem": "avará"
+    },
+    "AVARO": {
+      "spelling": "avaro",
+      "stem": "avaro"
+    },
+    "AVELA": {
+      "spelling": "avelã",
+      "stem": "avelã"
+    },
+    "AVIDO": {
+      "spelling": "ávido",
+      "stem": "ávido"
+    },
+    "AXILA": {
+      "spelling": "axila",
+      "stem": "axila"
+    },
+    "AZEDA": {
+      "spelling": "azedá",
+      "stem": "azedar"
+    },
+    "AZEDO": {
+      "spelling": "azedo",
+      "stem": "azedar"
+    },
+    "AZUIS": {
+      "spelling": "azuis",
+      "stem": "azul"
+    },
+    "BACIA": {
+      "spelling": "baciá",
+      "stem": "baciar"
+    },
+    "BAGRE": {
+      "spelling": "bagre",
+      "stem": "bagre"
+    },
+    "BAIOS": {
+      "spelling": "baios",
+      "stem": "baios"
+    },
+    "BAITA": {
+      "spelling": "baita",
+      "stem": "baite"
+    },
+    "BALSA": {
+      "spelling": "balsa",
+      "stem": "balsa"
+    },
+    "BAMBU": {
+      "spelling": "bambu",
+      "stem": "bambu"
+    },
+    "BANAL": {
+      "spelling": "banal",
+      "stem": "banal"
+    },
+    "BANDA": {
+      "spelling": "bandá",
+      "stem": "bandar"
+    },
+    "BANIR": {
+      "spelling": "banir",
+      "stem": "banir"
+    },
+    "BARBA": {
+      "spelling": "barbá",
+      "stem": "barbar"
+    },
+    "BATAS": {
+      "spelling": "batás",
+      "stem": "batá"
+    },
+    "BATER": {
+      "spelling": "bater",
+      "stem": "bater"
+    },
+    "BAZAR": {
+      "spelling": "bazar",
+      "stem": "bazar"
+    },
+    "BEATO": {
+      "spelling": "beato",
+      "stem": "beato"
+    },
+    "BEBER": {
+      "spelling": "beber",
+      "stem": "beber"
+    },
+    "BELAS": {
+      "spelling": "belãs",
+      "stem": "belão"
+    },
+    "BENTO": {
+      "spelling": "bento",
+      "stem": "bento"
+    },
+    "BERCO": {
+      "spelling": "berço",
+      "stem": "berçar"
+    },
+    "BERRO": {
+      "spelling": "berro",
+      "stem": "berrar"
+    },
+    "BICOS": {
+      "spelling": "bicós",
+      "stem": "bicó"
+    },
+    "BINGO": {
+      "spelling": "bingo",
+      "stem": "bingar"
+    },
+    "BOCAL": {
+      "spelling": "boçal",
+      "stem": "boçal"
+    },
+    "BOCAS": {
+      "spelling": "bocas",
+      "stem": "boca"
+    },
+    "BOIAS": {
+      "spelling": "boias",
+      "stem": "boiar"
+    },
+    "BOINA": {
+      "spelling": "boina",
+      "stem": "boina"
+    },
+    "BOLAS": {
+      "spelling": "bolãs",
+      "stem": "bolão"
+    },
+    "BOLOS": {
+      "spelling": "bolos",
+      "stem": "bolos"
+    },
+    "BONDE": {
+      "spelling": "bonde",
+      "stem": "bondar"
+    },
+    "BONES": {
+      "spelling": "bonés",
+      "stem": "boné"
+    },
+    "BORRA": {
+      "spelling": "borrá",
+      "stem": "borrar"
+    },
+    "BOTAO": {
+      "spelling": "botão",
+      "stem": "botão"
+    },
+    "BOTES": {
+      "spelling": "botes",
+      "stem": "botar"
+    },
+    "BRABA": {
+      "spelling": "brabá",
+      "stem": "brabar"
+    },
+    "BRASA": {
+      "spelling": "brasa",
+      "stem": "brasa"
+    },
+    "BRAVA": {
+      "spelling": "bravá",
+      "stem": "bravar"
+    },
+    "BRIGA": {
+      "spelling": "briga",
+      "stem": "briga"
+    },
+    "BUCAL": {
+      "spelling": "bucal",
+      "stem": "bucal"
+    },
+    "BUCHA": {
+      "spelling": "bucha",
+      "stem": "bucho"
+    },
+    "BULES": {
+      "spelling": "bules",
+      "stem": "bular"
+    },
+    "BURRA": {
+      "spelling": "burrá",
+      "stem": "burrar"
+    },
+    "BURRO": {
+      "spelling": "burro",
+      "stem": "burrar"
+    },
+    "BUSTO": {
+      "spelling": "busto",
+      "stem": "busto"
+    },
+    "BUTIM": {
+      "spelling": "butim",
+      "stem": "butim"
+    },
+    "CABOS": {
+      "spelling": "cabos",
+      "stem": "cabo"
+    },
+    "CACAS": {
+      "spelling": "cacás",
+      "stem": "cacá"
+    },
+    "CACHO": {
+      "spelling": "cacho",
+      "stem": "cachar"
+    },
+    "CAFES": {
+      "spelling": "cafés",
+      "stem": "café"
+    },
+    "CAIDA": {
+      "spelling": "caída",
+      "stem": "cair"
+    },
+    "CAIDO": {
+      "spelling": "caído",
+      "stem": "cair"
+    },
+    "CALAR": {
+      "spelling": "calar",
+      "stem": "calar"
+    },
+    "CALCA": {
+      "spelling": "calçá",
+      "stem": "calçar"
+    },
+    "CALHA": {
+      "spelling": "calhá",
+      "stem": "calhar"
+    },
+    "CALOS": {
+      "spelling": "calôs",
+      "stem": "calô"
+    },
+    "CANOA": {
+      "spelling": "canoa",
+      "stem": "canoa"
+    },
+    "CAPAS": {
+      "spelling": "capas",
+      "stem": "capa"
+    },
+    "CAPUZ": {
+      "spelling": "capuz",
+      "stem": "capuz"
+    },
+    "CARAS": {
+      "spelling": "carás",
+      "stem": "cará"
+    },
+    "CAROS": {
+      "spelling": "carós",
+      "stem": "caró"
+    },
+    "CARPA": {
+      "spelling": "carpá",
+      "stem": "carpar"
+    },
+    "CAVAR": {
+      "spelling": "cavar",
+      "stem": "cavar"
+    },
+    "CEDRO": {
+      "spelling": "cedro",
+      "stem": "cedro"
+    },
+    "CEIFA": {
+      "spelling": "ceifá",
+      "stem": "ceifar"
+    },
+    "CERNE": {
+      "spelling": "cerne",
+      "stem": "cernar"
+    },
+    "CETIM": {
+      "spelling": "cetim",
+      "stem": "cetim"
+    },
+    "CHALE": {
+      "spelling": "chale",
+      "stem": "chalar"
+    },
+    "CHAMA": {
+      "spelling": "chamá",
+      "stem": "chamar"
+    },
+    "CHAPA": {
+      "spelling": "chapá",
+      "stem": "chapar"
+    },
+    "CHATA": {
+      "spelling": "chata",
+      "stem": "chato"
+    },
+    "CHATO": {
+      "spelling": "chato",
+      "stem": "chato"
+    },
+    "CHEFE": {
+      "spelling": "chefe",
+      "stem": "chefe"
+    },
+    "CHEIA": {
+      "spelling": "cheia",
+      "stem": "cheio"
+    },
+    "CHEIO": {
+      "spelling": "cheio",
+      "stem": "cheio"
+    },
+    "CHOCA": {
+      "spelling": "chocá",
+      "stem": "chocar"
+    },
+    "CHOPE": {
+      "spelling": "chope",
+      "stem": "chope"
+    },
+    "CHORO": {
+      "spelling": "choro",
+      "stem": "chorar"
+    },
+    "CHUVA": {
+      "spelling": "chuva",
+      "stem": "chuva"
+    },
+    "CILIO": {
+      "spelling": "cílio",
+      "stem": "cílio"
+    },
+    "CISCO": {
+      "spelling": "cisco",
+      "stem": "ciscar"
+    },
+    "CISMA": {
+      "spelling": "cismá",
+      "stem": "cismar"
+    },
+    "CIUME": {
+      "spelling": "ciume",
+      "stem": "ciumar"
+    },
+    "CIVEL": {
+      "spelling": "cível",
+      "stem": "cível"
+    },
+    "CIVIL": {
+      "spelling": "civil",
+      "stem": "civil"
+    },
+    "CLERO": {
+      "spelling": "clero",
+      "stem": "clero"
+    },
+    "CLONE": {
+      "spelling": "clone",
+      "stem": "clonar"
+    },
+    "COADA": {
+      "spelling": "coada",
+      "stem": "coar"
+    },
+    "COADO": {
+      "spelling": "coado",
+      "stem": "coar"
+    },
+    "COCAR": {
+      "spelling": "cocar",
+      "stem": "cocar"
+    },
+    "COCOS": {
+      "spelling": "cocôs",
+      "stem": "cocô"
+    },
+    "COESO": {
+      "spelling": "coeso",
+      "stem": "coeso"
+    },
+    "COITO": {
+      "spelling": "coito",
+      "stem": "coitar"
+    },
+    "COLAS": {
+      "spelling": "colas",
+      "stem": "colar"
+    },
+    "COLMO": {
+      "spelling": "colmo",
+      "stem": "colmar"
+    },
+    "COMUM": {
+      "spelling": "comum",
+      "stem": "comum"
+    },
+    "CONDE": {
+      "spelling": "conde",
+      "stem": "conde"
+    },
+    "CONES": {
+      "spelling": "cones",
+      "stem": "cone"
+    },
+    "COPAS": {
+      "spelling": "copas",
+      "stem": "copar"
+    },
+    "COPIA": {
+      "spelling": "cópia",
+      "stem": "cópia"
+    },
+    "COPOS": {
+      "spelling": "copos",
+      "stem": "copo"
+    },
+    "CORAR": {
+      "spelling": "corar",
+      "stem": "corar"
+    },
+    "COROA": {
+      "spelling": "corôa",
+      "stem": "corôa"
+    },
+    "CORSA": {
+      "spelling": "corsa",
+      "stem": "corso"
+    },
+    "COTAR": {
+      "spelling": "cotar",
+      "stem": "cotar"
+    },
+    "COTAS": {
+      "spelling": "cotas",
+      "stem": "cota"
+    },
+    "COTIA": {
+      "spelling": "cotiá",
+      "stem": "cotiar"
+    },
+    "COUVE": {
+      "spelling": "couve",
+      "stem": "couvar"
+    },
+    "COXAS": {
+      "spelling": "coxas",
+      "stem": "coxo"
+    },
+    "COZER": {
+      "spelling": "cozer",
+      "stem": "cozer"
+    },
+    "CRAVA": {
+      "spelling": "cravá",
+      "stem": "cravar"
+    },
+    "CREME": {
+      "spelling": "creme",
+      "stem": "cremar"
+    },
+    "CRIAR": {
+      "spelling": "criar",
+      "stem": "criar"
+    },
+    "CRINA": {
+      "spelling": "crina",
+      "stem": "crino"
+    },
+    "CRIVO": {
+      "spelling": "crivo",
+      "stem": "crivar"
+    },
+    "CRUZA": {
+      "spelling": "cruzá",
+      "stem": "cruzar"
+    },
+    "CUBOS": {
+      "spelling": "cubos",
+      "stem": "cubo"
+    },
+    "CUECA": {
+      "spelling": "cueca",
+      "stem": "cueca"
+    },
+    "CUIDA": {
+      "spelling": "cuidá",
+      "stem": "cuidar"
+    },
+    "CUNHA": {
+      "spelling": "cunhã",
+      "stem": "cunhã"
+    },
+    "CUPIM": {
+      "spelling": "cupim",
+      "stem": "cupim"
+    },
+    "CURAR": {
+      "spelling": "curar",
+      "stem": "curar"
+    },
+    "CUSTO": {
+      "spelling": "custo",
+      "stem": "custar"
+    },
+    "CUTIA": {
+      "spelling": "cutia",
+      "stem": "cutia"
+    },
+    "DAMAS": {
+      "spelling": "damas",
+      "stem": "damo"
+    },
+    "DATAR": {
+      "spelling": "datar",
+      "stem": "datar"
+    },
+    "DEDAL": {
+      "spelling": "dedal",
+      "stem": "dedal"
+    },
+    "DEDOS": {
+      "spelling": "dedos",
+      "stem": "dedos"
+    },
+    "DELAS": {
+      "spelling": "delas",
+      "stem": "dele"
+    },
+    "DELES": {
+      "spelling": "deles",
+      "stem": "dele"
+    },
+    "DENSO": {
+      "spelling": "denso",
+      "stem": "densar"
+    },
+    "DETEM": {
+      "spelling": "detém",
+      "stem": "deter"
+    },
+    "DEUSA": {
+      "spelling": "deusa",
+      "stem": "deusa"
+    },
+    "DIETA": {
+      "spelling": "dieta",
+      "stem": "dieta"
+    },
+    "DOADO": {
+      "spelling": "doado",
+      "stem": "doar"
+    },
+    "DOCES": {
+      "spelling": "doces",
+      "stem": "doçar"
+    },
+    "DOGMA": {
+      "spelling": "dogma",
+      "stem": "dogma"
+    },
+    "DOIDA": {
+      "spelling": "doída",
+      "stem": "doer"
+    },
+    "DOLAR": {
+      "spelling": "dólar",
+      "stem": "dólar"
+    },
+    "DOSES": {
+      "spelling": "doses",
+      "stem": "dosar"
+    },
+    "DOTAR": {
+      "spelling": "dotar",
+      "stem": "dotar"
+    },
+    "DUNAS": {
+      "spelling": "dunas",
+      "stem": "duna"
+    },
+    "DUROS": {
+      "spelling": "duros",
+      "stem": "duro"
+    },
+    "DUZIA": {
+      "spelling": "dúzia",
+      "stem": "dúzia"
+    },
+    "EBANO": {
+      "spelling": "ébano",
+      "stem": "ébano"
+    },
+    "ECOAR": {
+      "spelling": "ecoar",
+      "stem": "ecoar"
+    },
+    "EDEMA": {
+      "spelling": "edema",
+      "stem": "edema"
+    },
+    "EDUCA": {
+      "spelling": "educá",
+      "stem": "educar"
+    },
+    "ELEGE": {
+      "spelling": "élege",
+      "stem": "élege"
+    },
+    "ELEVA": {
+      "spelling": "elevá",
+      "stem": "elevar"
+    },
+    "EMANA": {
+      "spelling": "emaná",
+      "stem": "emanar"
+    },
+    "ENCHE": {
+      "spelling": "enchê",
+      "stem": "encher"
+    },
+    "ENJOA": {
+      "spelling": "enjoá",
+      "stem": "enjoar"
+    },
+    "ENTRA": {
+      "spelling": "entrá",
+      "stem": "entrar"
+    },
+    "EPICA": {
+      "spelling": "épica",
+      "stem": "épico"
+    },
+    "EPICO": {
+      "spelling": "épico",
+      "stem": "épico"
+    },
+    "ERGUE": {
+      "spelling": "erguê",
+      "stem": "erguer"
+    },
+    "ERVAS": {
+      "spelling": "ervas",
+      "stem": "erva"
+    },
+    "ESPIA": {
+      "spelling": "espiã",
+      "stem": "espião"
+    },
+    "ESSES": {
+      "spelling": "esses",
+      "stem": "esse"
+    },
+    "ESTAS": {
+      "spelling": "estás",
+      "stem": "estar"
+    },
+    "ETICA": {
+      "spelling": "ética",
+      "stem": "ético"
+    },
+    "ETICO": {
+      "spelling": "ético",
+      "stem": "ético"
+    },
+    "EVITA": {
+      "spelling": "evitá",
+      "stem": "evitar"
+    },
+    "EXALA": {
+      "spelling": "exalá",
+      "stem": "exalar"
+    },
+    "EXIGE": {
+      "spelling": "exige",
+      "stem": "exigir"
+    },
+    "EXILA": {
+      "spelling": "exilá",
+      "stem": "exilar"
+    },
+    "EXPOE": {
+      "spelling": "expõe",
+      "stem": "expor"
+    },
+    "FADAS": {
+      "spelling": "fadas",
+      "stem": "fadar"
+    },
+    "FAIXA": {
+      "spelling": "faixá",
+      "stem": "faixar"
+    },
+    "FALAR": {
+      "spelling": "falar",
+      "stem": "falar"
+    },
+    "FANHA": {
+      "spelling": "fanha",
+      "stem": "fanho"
+    },
+    "FANHO": {
+      "spelling": "fanho",
+      "stem": "fanho"
+    },
+    "FARDA": {
+      "spelling": "farda",
+      "stem": "farda"
+    },
+    "FARPA": {
+      "spelling": "farpá",
+      "stem": "farpar"
+    },
+    "FARRA": {
+      "spelling": "farrá",
+      "stem": "farrar"
+    },
+    "FATIA": {
+      "spelling": "fatiá",
+      "stem": "fatiar"
+    },
+    "FATOS": {
+      "spelling": "fatos",
+      "stem": "fato"
+    },
+    "FAVAS": {
+      "spelling": "favas",
+      "stem": "favar"
+    },
+    "FECHA": {
+      "spelling": "fechá",
+      "stem": "fechar"
+    },
+    "FEDER": {
+      "spelling": "feder",
+      "stem": "feder"
+    },
+    "FEIAS": {
+      "spelling": "feias",
+      "stem": "feio"
+    },
+    "FEIOS": {
+      "spelling": "feios",
+      "stem": "feio"
+    },
+    "FEIXE": {
+      "spelling": "feixe",
+      "stem": "feixe"
+    },
+    "FEMEA": {
+      "spelling": "femeá",
+      "stem": "femear"
+    },
+    "FENDA": {
+      "spelling": "fenda",
+      "stem": "fender"
+    },
+    "FENIX": {
+      "spelling": "fênix",
+      "stem": "fênix"
+    },
+    "FETOS": {
+      "spelling": "fetos",
+      "stem": "feto"
+    },
+    "FEUDO": {
+      "spelling": "feudo",
+      "stem": "feudo"
+    },
+    "FIADO": {
+      "spelling": "fiado",
+      "stem": "fiar"
+    },
+    "FIBRA": {
+      "spelling": "fibra",
+      "stem": "fibro"
+    },
+    "FICHA": {
+      "spelling": "fichá",
+      "stem": "fichar"
+    },
+    "FIGOS": {
+      "spelling": "figos",
+      "stem": "figo"
+    },
+    "FILAS": {
+      "spelling": "filas",
+      "stem": "fila"
+    },
+    "FILHA": {
+      "spelling": "filhá",
+      "stem": "filhar"
+    },
+    "FINAS": {
+      "spelling": "finas",
+      "stem": "finar"
+    },
+    "FINCA": {
+      "spelling": "fincá",
+      "stem": "fincar"
+    },
+    "FINOS": {
+      "spelling": "finos",
+      "stem": "fino"
+    },
+    "FINTA": {
+      "spelling": "fintá",
+      "stem": "fintar"
+    },
+    "FISGA": {
+      "spelling": "fisgá",
+      "stem": "fisgar"
+    },
+    "FOCAL": {
+      "spelling": "focal",
+      "stem": "focal"
+    },
+    "FOCAR": {
+      "spelling": "focar",
+      "stem": "focar"
+    },
+    "FOCAS": {
+      "spelling": "foçãs",
+      "stem": "foção"
+    },
+    "FOCOS": {
+      "spelling": "focos",
+      "stem": "focos"
+    },
+    "FOICE": {
+      "spelling": "foice",
+      "stem": "foiçar"
+    },
+    "FOLGA": {
+      "spelling": "folgá",
+      "stem": "folgar"
+    },
+    "FOTOS": {
+      "spelling": "fotos",
+      "stem": "foto"
+    },
+    "FRACA": {
+      "spelling": "fracá",
+      "stem": "fracar"
+    },
+    "FRACO": {
+      "spelling": "fraco",
+      "stem": "fracar"
+    },
+    "FRADE": {
+      "spelling": "frade",
+      "stem": "fradar"
+    },
+    "FREAR": {
+      "spelling": "frear",
+      "stem": "frear"
+    },
+    "FRETE": {
+      "spelling": "frete",
+      "stem": "fretar"
+    },
+    "FRIAS": {
+      "spelling": "frias",
+      "stem": "frio"
+    },
+    "FRIOS": {
+      "spelling": "frios",
+      "stem": "frio"
+    },
+    "FROTA": {
+      "spelling": "frota",
+      "stem": "frota"
+    },
+    "FUMAR": {
+      "spelling": "fumar",
+      "stem": "fumar"
+    },
+    "FUMOS": {
+      "spelling": "fumos",
+      "stem": "fumo"
+    },
+    "FUNIL": {
+      "spelling": "funil",
+      "stem": "funil"
+    },
+    "FURAR": {
+      "spelling": "furar",
+      "stem": "furar"
+    },
+    "FURTO": {
+      "spelling": "furto",
+      "stem": "furtar"
+    },
+    "GAITA": {
+      "spelling": "gaitá",
+      "stem": "gaitar"
+    },
+    "GALHO": {
+      "spelling": "galho",
+      "stem": "galho"
+    },
+    "GALOS": {
+      "spelling": "galos",
+      "stem": "galo"
+    },
+    "GANHO": {
+      "spelling": "ganho",
+      "stem": "ganhar"
+    },
+    "GANSO": {
+      "spelling": "ganso",
+      "stem": "ganso"
+    },
+    "GARFO": {
+      "spelling": "garfo",
+      "stem": "garfar"
+    },
+    "GASES": {
+      "spelling": "gases",
+      "stem": "gases"
+    },
+    "GATAS": {
+      "spelling": "gatas",
+      "stem": "gatar"
+    },
+    "GATOS": {
+      "spelling": "gatos",
+      "stem": "gato"
+    },
+    "GERAL": {
+      "spelling": "geral",
+      "stem": "geral"
+    },
+    "GESSO": {
+      "spelling": "gesso",
+      "stem": "gessar"
+    },
+    "GINGA": {
+      "spelling": "gingá",
+      "stem": "gingar"
+    },
+    "GOLAS": {
+      "spelling": "golas",
+      "stem": "golar"
+    },
+    "GOMAS": {
+      "spelling": "gomas",
+      "stem": "gomar"
+    },
+    "GORRO": {
+      "spelling": "gorro",
+      "stem": "gorrar"
+    },
+    "GOTAS": {
+      "spelling": "gotas",
+      "stem": "gote"
+    },
+    "GRACA": {
+      "spelling": "graça",
+      "stem": "graça"
+    },
+    "GRADE": {
+      "spelling": "grade",
+      "stem": "gradar"
+    },
+    "GRAOS": {
+      "spelling": "grãos",
+      "stem": "grão"
+    },
+    "GRAXA": {
+      "spelling": "graxa",
+      "stem": "graxo"
+    },
+    "GREVE": {
+      "spelling": "greve",
+      "stem": "greve"
+    },
+    "GRIFE": {
+      "spelling": "grife",
+      "stem": "grifar"
+    },
+    "GRITA": {
+      "spelling": "gritá",
+      "stem": "gritar"
+    },
+    "GUETO": {
+      "spelling": "gueto",
+      "stem": "gueto"
+    },
+    "GUIAS": {
+      "spelling": "guias",
+      "stem": "guiar"
+    },
+    "HARPA": {
+      "spelling": "harpá",
+      "stem": "harpar"
+    },
+    "HASTE": {
+      "spelling": "haste",
+      "stem": "haste"
+    },
+    "HIATO": {
+      "spelling": "hiato",
+      "stem": "hiato"
+    },
+    "HIDRA": {
+      "spelling": "hidra",
+      "stem": "hidro"
+    },
+    "HIFEN": {
+      "spelling": "hífen",
+      "stem": "hífen"
+    },
+    "HIPER": {
+      "spelling": "hiper",
+      "stem": "hiper"
+    },
+    "HOMEM": {
+      "spelling": "homem",
+      "stem": "homem"
+    },
+    "HORAS": {
+      "spelling": "horas",
+      "stem": "hora"
+    },
+    "HORTA": {
+      "spelling": "hortá",
+      "stem": "hortar"
+    },
+    "HUMUS": {
+      "spelling": "húmus",
+      "stem": "húmus"
+    },
+    "ICONE": {
+      "spelling": "ícone",
+      "stem": "ícone"
+    },
+    "IDEIA": {
+      "spelling": "ideia",
+      "stem": "idear"
+    },
+    "IDOLA": {
+      "spelling": "ídola",
+      "stem": "ídolo"
+    },
+    "IDOLO": {
+      "spelling": "ídolo",
+      "stem": "ídolo"
+    },
+    "IMITA": {
+      "spelling": "imitá",
+      "stem": "imitar"
+    },
+    "IMUNE": {
+      "spelling": "imune",
+      "stem": "imune"
+    },
+    "INATO": {
+      "spelling": "inato",
+      "stem": "ato"
+    },
+    "INCHA": {
+      "spelling": "inchá",
+      "stem": "inchar"
+    },
+    "INSTA": {
+      "spelling": "instá",
+      "stem": "instar"
+    },
+    "INTUI": {
+      "spelling": "intuí",
+      "stem": "intuir"
+    },
+    "ISOLA": {
+      "spelling": "isolá",
+      "stem": "isolar"
+    },
+    "JACAS": {
+      "spelling": "jacás",
+      "stem": "jacá"
+    },
+    "JADES": {
+      "spelling": "jades",
+      "stem": "jade"
+    },
+    "JAULA": {
+      "spelling": "jaula",
+      "stem": "jaula"
+    },
+    "JEITO": {
+      "spelling": "jeito",
+      "stem": "jeitar"
+    },
+    "JEJUM": {
+      "spelling": "jejum",
+      "stem": "jejum"
+    },
+    "JOGOS": {
+      "spelling": "jogós",
+      "stem": "jogó"
+    },
+    "JOIAS": {
+      "spelling": "joias",
+      "stem": "joio"
+    },
+    "JUIZA": {
+      "spelling": "juizá",
+      "stem": "juizar"
+    },
+    "JURAR": {
+      "spelling": "jurar",
+      "stem": "jurar"
+    },
+    "LACAR": {
+      "spelling": "laçar",
+      "stem": "laçar"
+    },
+    "LACRE": {
+      "spelling": "lacre",
+      "stem": "lacrar"
+    },
+    "LARVA": {
+      "spelling": "larva",
+      "stem": "larva"
+    },
+    "LASCA": {
+      "spelling": "lascá",
+      "stem": "lascar"
+    },
+    "LATAS": {
+      "spelling": "latas",
+      "stem": "lata"
+    },
+    "LATIR": {
+      "spelling": "latir",
+      "stem": "latir"
+    },
+    "LAVAR": {
+      "spelling": "lavar",
+      "stem": "lavar"
+    },
+    "LAVRA": {
+      "spelling": "lavrá",
+      "stem": "lavrar"
+    },
+    "LEAIS": {
+      "spelling": "leais",
+      "stem": "leal"
+    },
+    "LEGUA": {
+      "spelling": "légua",
+      "stem": "légua"
+    },
+    "LEIGO": {
+      "spelling": "leigo",
+      "stem": "leigar"
+    },
+    "LEITE": {
+      "spelling": "leite",
+      "stem": "leitar"
+    },
+    "LERDO": {
+      "spelling": "lerdo",
+      "stem": "lerdo"
+    },
+    "LESMA": {
+      "spelling": "lesmá",
+      "stem": "lesmar"
+    },
+    "LETAL": {
+      "spelling": "letal",
+      "stem": "letal"
+    },
+    "LETRA": {
+      "spelling": "letrá",
+      "stem": "letrar"
+    },
+    "LEVES": {
+      "spelling": "leves",
+      "stem": "levar"
+    },
+    "LIBRA": {
+      "spelling": "librá",
+      "stem": "librar"
+    },
+    "LICAO": {
+      "spelling": "lição",
+      "stem": "lição"
+    },
+    "LICOR": {
+      "spelling": "licor",
+      "stem": "licor"
+    },
+    "LIGAR": {
+      "spelling": "ligar",
+      "stem": "ligar"
+    },
+    "LILAS": {
+      "spelling": "lilas",
+      "stem": "lila"
+    },
+    "LIRIO": {
+      "spelling": "lírio",
+      "stem": "lírio"
+    },
+    "LISAS": {
+      "spelling": "lisas",
+      "stem": "liso"
+    },
+    "LISOS": {
+      "spelling": "lisos",
+      "stem": "liso"
+    },
+    "LITRO": {
+      "spelling": "litro",
+      "stem": "litro"
+    },
+    "LIVRE": {
+      "spelling": "livre",
+      "stem": "livrar"
+    },
+    "LODOS": {
+      "spelling": "lodos",
+      "stem": "lodo"
+    },
+    "LOTAR": {
+      "spelling": "lotar",
+      "stem": "lotar"
+    },
+    "LOTES": {
+      "spelling": "lotes",
+      "stem": "lotar"
+    },
+    "LOUCA": {
+      "spelling": "louça",
+      "stem": "louça"
+    },
+    "LOUVA": {
+      "spelling": "louvá",
+      "stem": "louvar"
+    },
+    "LUPAS": {
+      "spelling": "lupas",
+      "stem": "lupar"
+    },
+    "LUVAS": {
+      "spelling": "luvas",
+      "stem": "luva"
+    },
+    "LUZES": {
+      "spelling": "luzes",
+      "stem": "luz"
+    },
+    "MACAS": {
+      "spelling": "macás",
+      "stem": "macá"
+    },
+    "MACHO": {
+      "spelling": "macho",
+      "stem": "macho"
+    },
+    "MAGOA": {
+      "spelling": "mágoa",
+      "stem": "mágoa"
+    },
+    "MAGRA": {
+      "spelling": "magrã",
+      "stem": "magrão"
+    },
+    "MAGRO": {
+      "spelling": "magro",
+      "stem": "magro"
+    },
+    "MALAS": {
+      "spelling": "malas",
+      "stem": "malar"
+    },
+    "MALTE": {
+      "spelling": "malte",
+      "stem": "maltar"
+    },
+    "MAMAR": {
+      "spelling": "mamar",
+      "stem": "mamar"
+    },
+    "MANAS": {
+      "spelling": "manás",
+      "stem": "maná"
+    },
+    "MANDO": {
+      "spelling": "mando",
+      "stem": "mandar"
+    },
+    "MANIA": {
+      "spelling": "mania",
+      "stem": "mania"
+    },
+    "MANOS": {
+      "spelling": "manos",
+      "stem": "manos"
+    },
+    "MAPAS": {
+      "spelling": "mapás",
+      "stem": "mapá"
+    },
+    "MASCA": {
+      "spelling": "mascá",
+      "stem": "mascar"
+    },
+    "MECHA": {
+      "spelling": "mechá",
+      "stem": "mechar"
+    },
+    "MEIAS": {
+      "spelling": "meias",
+      "stem": "mear"
+    },
+    "MEIOS": {
+      "spelling": "meios",
+      "stem": "meio"
+    },
+    "MELAO": {
+      "spelling": "melão",
+      "stem": "melão"
+    },
+    "MELAR": {
+      "spelling": "melar",
+      "stem": "melar"
+    },
+    "MESAS": {
+      "spelling": "mesas",
+      "stem": "meso"
+    },
+    "MICOS": {
+      "spelling": "micos",
+      "stem": "mico"
+    },
+    "MIGRA": {
+      "spelling": "migrá",
+      "stem": "migrar"
+    },
+    "MIMAR": {
+      "spelling": "mimar",
+      "stem": "mimar"
+    },
+    "MINAS": {
+      "spelling": "minas",
+      "stem": "mina"
+    },
+    "MIOPE": {
+      "spelling": "míope",
+      "stem": "míope"
+    },
+    "MIRAR": {
+      "spelling": "mirar",
+      "stem": "mirar"
+    },
+    "MIRIM": {
+      "spelling": "mirim",
+      "stem": "mirim"
+    },
+    "MISSA": {
+      "spelling": "missa",
+      "stem": "missa"
+    },
+    "MIXAR": {
+      "spelling": "mixar",
+      "stem": "mixar"
+    },
+    "MOCAS": {
+      "spelling": "mocãs",
+      "stem": "mocã"
+    },
+    "MOCOS": {
+      "spelling": "mocós",
+      "stem": "mocó"
+    },
+    "MODAS": {
+      "spelling": "modas",
+      "stem": "modo"
+    },
+    "MODOS": {
+      "spelling": "modos",
+      "stem": "modo"
+    },
+    "MOFAR": {
+      "spelling": "mofar",
+      "stem": "mofar"
+    },
+    "MOITA": {
+      "spelling": "moita",
+      "stem": "moita"
+    },
+    "MOLAR": {
+      "spelling": "molar",
+      "stem": "molar"
+    },
+    "MONGE": {
+      "spelling": "monge",
+      "stem": "monge"
+    },
+    "MORDA": {
+      "spelling": "morda",
+      "stem": "morder"
+    },
+    "MOSCA": {
+      "spelling": "moscá",
+      "stem": "moscar"
+    },
+    "MOTEL": {
+      "spelling": "motel",
+      "stem": "motel"
+    },
+    "MOTOS": {
+      "spelling": "motos",
+      "stem": "moto"
+    },
+    "MULTA": {
+      "spelling": "multá",
+      "stem": "multar"
+    },
+    "MUMIA": {
+      "spelling": "múmia",
+      "stem": "múmia"
+    },
+    "MURRO": {
+      "spelling": "murro",
+      "stem": "murro"
+    },
+    "MUSAS": {
+      "spelling": "musas",
+      "stem": "musa"
+    },
+    "MUTUO": {
+      "spelling": "mutuo",
+      "stem": "mutuar"
+    },
+    "NACAO": {
+      "spelling": "nação",
+      "stem": "nação"
+    },
+    "NARCO": {
+      "spelling": "narco",
+      "stem": "narco"
+    },
+    "NATAS": {
+      "spelling": "natas",
+      "stem": "nato"
+    },
+    "NINAR": {
+      "spelling": "ninar",
+      "stem": "ninar"
+    },
+    "NINHO": {
+      "spelling": "ninho",
+      "stem": "ninhar"
+    },
+    "NINJA": {
+      "spelling": "ninja",
+      "stem": "ninja"
+    },
+    "NODOS": {
+      "spelling": "nodos",
+      "stem": "nodos"
+    },
+    "NOIVA": {
+      "spelling": "noivá",
+      "stem": "noivar"
+    },
+    "NOIVO": {
+      "spelling": "noivo",
+      "stem": "noivar"
+    },
+    "NOMES": {
+      "spelling": "nomes",
+      "stem": "nome"
+    },
+    "NORMA": {
+      "spelling": "norma",
+      "stem": "norma"
+    },
+    "NOTAS": {
+      "spelling": "notas",
+      "stem": "notar"
+    },
+    "NOVAS": {
+      "spelling": "novas",
+      "stem": "novar"
+    },
+    "NUTRE": {
+      "spelling": "nutre",
+      "stem": "nutrir"
+    },
+    "OASIS": {
+      "spelling": "oásis",
+      "stem": "oásis"
+    },
+    "OBESO": {
+      "spelling": "obeso",
+      "stem": "obeso"
+    },
+    "OBITO": {
+      "spelling": "óbito",
+      "stem": "óbito"
+    },
+    "OBRAS": {
+      "spelling": "obras",
+      "stem": "obrar"
+    },
+    "OCASO": {
+      "spelling": "ocaso",
+      "stem": "ocaso"
+    },
+    "OCUPA": {
+      "spelling": "ocupá",
+      "stem": "ocupar"
+    },
+    "ODEIA": {
+      "spelling": "odeia",
+      "stem": "odiar"
+    },
+    "OLEOS": {
+      "spelling": "óleos",
+      "stem": "óleo"
+    },
+    "OMBRO": {
+      "spelling": "ombro",
+      "stem": "ombro"
+    },
+    "ONCAS": {
+      "spelling": "onças",
+      "stem": "onça"
+    },
+    "ONDAS": {
+      "spelling": "ondas",
+      "stem": "ondar"
+    },
+    "ONERA": {
+      "spelling": "onerá",
+      "stem": "onerar"
+    },
+    "OPACO": {
+      "spelling": "opaco",
+      "stem": "opacar"
+    },
+    "OPERA": {
+      "spelling": "ópera",
+      "stem": "ópera"
+    },
+    "OPTAR": {
+      "spelling": "optar",
+      "stem": "optar"
+    },
+    "ORCAS": {
+      "spelling": "orças",
+      "stem": "orçar"
+    },
+    "ORFAO": {
+      "spelling": "órfão",
+      "stem": "órfão"
+    },
+    "OSSEO": {
+      "spelling": "ósseo",
+      "stem": "ósseo"
+    },
+    "OSTRA": {
+      "spelling": "ostra",
+      "stem": "ostro"
+    },
+    "OTICA": {
+      "spelling": "ótica",
+      "stem": "ótico"
+    },
+    "OTICO": {
+      "spelling": "ótico",
+      "stem": "ótico"
+    },
+    "OTIMO": {
+      "spelling": "ótimo",
+      "stem": "ótimo"
+    },
+    "OUSAR": {
+      "spelling": "ousar",
+      "stem": "ousar"
+    },
+    "OUTRO": {
+      "spelling": "outro",
+      "stem": "outro"
+    },
+    "OVINO": {
+      "spelling": "ovino",
+      "stem": "ovino"
+    },
+    "PACTO": {
+      "spelling": "pacto",
+      "stem": "pactar"
+    },
+    "PAJEM": {
+      "spelling": "pajem",
+      "stem": "pajem"
+    },
+    "PALMO": {
+      "spelling": "palmo",
+      "stem": "palmar"
+    },
+    "PANDA": {
+      "spelling": "pandá",
+      "stem": "pandar"
+    },
+    "PANOS": {
+      "spelling": "panôs",
+      "stem": "panô"
+    },
+    "PAPAS": {
+      "spelling": "papas",
+      "stem": "papar"
+    },
+    "PAPOS": {
+      "spelling": "papos",
+      "stem": "papos"
+    },
+    "PARCA": {
+      "spelling": "parca",
+      "stem": "parco"
+    },
+    "PARES": {
+      "spelling": "pares",
+      "stem": "parar"
+    },
+    "PARIR": {
+      "spelling": "parir",
+      "stem": "parir"
+    },
+    "PASMO": {
+      "spelling": "pasmo",
+      "stem": "pasmar"
+    },
+    "PATAS": {
+      "spelling": "patãs",
+      "stem": "patã"
+    },
+    "PATOS": {
+      "spelling": "patós",
+      "stem": "pató"
+    },
+    "PECAR": {
+      "spelling": "pecar",
+      "stem": "pecar"
+    },
+    "PEDAL": {
+      "spelling": "pedal",
+      "stem": "pedal"
+    },
+    "PEDIR": {
+      "spelling": "pedir",
+      "stem": "pedir"
+    },
+    "PEGAR": {
+      "spelling": "pegar",
+      "stem": "pegar"
+    },
+    "PELES": {
+      "spelling": "peles",
+      "stem": "pelar"
+    },
+    "PENAL": {
+      "spelling": "penal",
+      "stem": "penal"
+    },
+    "PENCA": {
+      "spelling": "penca",
+      "stem": "penco"
+    },
+    "PENHA": {
+      "spelling": "penha",
+      "stem": "penha"
+    },
+    "PERAS": {
+      "spelling": "peras",
+      "stem": "per"
+    },
+    "PERUA": {
+      "spelling": "peruá",
+      "stem": "peruar"
+    },
+    "PESTE": {
+      "spelling": "peste",
+      "stem": "peste"
+    },
+    "PETIZ": {
+      "spelling": "petiz",
+      "stem": "petiz"
+    },
+    "PIADA": {
+      "spelling": "piada",
+      "stem": "piar"
+    },
+    "PIADO": {
+      "spelling": "piado",
+      "stem": "piar"
+    },
+    "PICOS": {
+      "spelling": "picós",
+      "stem": "picó"
+    },
+    "PILAR": {
+      "spelling": "pilar",
+      "stem": "pilar"
+    },
+    "PINCA": {
+      "spelling": "pinçá",
+      "stem": "pinçar"
+    },
+    "PIQUE": {
+      "spelling": "pique",
+      "stem": "picar"
+    },
+    "PISAR": {
+      "spelling": "pisar",
+      "stem": "pisar"
+    },
+    "PITON": {
+      "spelling": "píton",
+      "stem": "píton"
+    },
+    "PIZZA": {
+      "spelling": "pizza",
+      "stem": "pizza"
+    },
+    "PODAR": {
+      "spelling": "podar",
+      "stem": "podar"
+    },
+    "POLOS": {
+      "spelling": "polos",
+      "stem": "polo"
+    },
+    "PONEI": {
+      "spelling": "pônei",
+      "stem": "pônei"
+    },
+    "POTES": {
+      "spelling": "potes",
+      "stem": "pote"
+    },
+    "POUCA": {
+      "spelling": "pouca",
+      "stem": "pouco"
+    },
+    "POUCO": {
+      "spelling": "pouco",
+      "stem": "pouco"
+    },
+    "POVOS": {
+      "spelling": "povos",
+      "stem": "povo"
+    },
+    "PRATA": {
+      "spelling": "prata",
+      "stem": "prato"
+    },
+    "PRATO": {
+      "spelling": "prato",
+      "stem": "prato"
+    },
+    "PRECE": {
+      "spelling": "prece",
+      "stem": "prece"
+    },
+    "PRIVE": {
+      "spelling": "prive",
+      "stem": "privar"
+    },
+    "PRUMO": {
+      "spelling": "prumo",
+      "stem": "prumar"
+    },
+    "PUDOR": {
+      "spelling": "pudor",
+      "stem": "pudor"
+    },
+    "PUROS": {
+      "spelling": "puros",
+      "stem": "puro"
+    },
+    "PUXAR": {
+      "spelling": "puxar",
+      "stem": "puxar"
+    },
+    "RABOS": {
+      "spelling": "rabos",
+      "stem": "rabo"
+    },
+    "RAIAR": {
+      "spelling": "raiar",
+      "stem": "raiar"
+    },
+    "RAJAS": {
+      "spelling": "rajas",
+      "stem": "rajar"
+    },
+    "RALAR": {
+      "spelling": "ralar",
+      "stem": "ralar"
+    },
+    "RAMPA": {
+      "spelling": "rampa",
+      "stem": "rampa"
+    },
+    "RANCO": {
+      "spelling": "ranço",
+      "stem": "rançar"
+    },
+    "RANGO": {
+      "spelling": "rango",
+      "stem": "rangar"
+    },
+    "RANHO": {
+      "spelling": "ranho",
+      "stem": "ranhar"
+    },
+    "RAPAR": {
+      "spelling": "rapar",
+      "stem": "rapar"
+    },
+    "RAPTO": {
+      "spelling": "rapto",
+      "stem": "raptar"
+    },
+    "RARAS": {
+      "spelling": "raras",
+      "stem": "rarar"
+    },
+    "RAROS": {
+      "spelling": "raros",
+      "stem": "raros"
+    },
+    "RASAS": {
+      "spelling": "rasas",
+      "stem": "rasar"
+    },
+    "RASOS": {
+      "spelling": "rasos",
+      "stem": "rasos"
+    },
+    "RATOS": {
+      "spelling": "ratôs",
+      "stem": "ratô"
+    },
+    "REAGE": {
+      "spelling": "reage",
+      "stem": "agir"
+    },
+    "REAIS": {
+      "spelling": "reais",
+      "stem": "real"
+    },
+    "REATA": {
+      "spelling": "reatá",
+      "stem": "atar"
+    },
+    "REGER": {
+      "spelling": "reger",
+      "stem": "reger"
+    },
+    "RELER": {
+      "spelling": "reler",
+      "stem": "ler"
+    },
+    "RELVA": {
+      "spelling": "relvã",
+      "stem": "relvão"
+    },
+    "REMAR": {
+      "spelling": "remar",
+      "stem": "remar"
+    },
+    "RENAL": {
+      "spelling": "renal",
+      "stem": "renal"
+    },
+    "REPOR": {
+      "spelling": "repor",
+      "stem": "por"
+    },
+    "RESMA": {
+      "spelling": "resmá",
+      "stem": "resmar"
+    },
+    "RETER": {
+      "spelling": "reter",
+      "stem": "reter"
+    },
+    "RETRO": {
+      "spelling": "retrô",
+      "stem": "retrô"
+    },
+    "REZAR": {
+      "spelling": "rezar",
+      "stem": "rezar"
+    },
+    "RICOS": {
+      "spelling": "ricos",
+      "stem": "rico"
+    },
+    "RIFAS": {
+      "spelling": "rifas",
+      "stem": "rifar"
+    },
+    "RIGOR": {
+      "spelling": "rigor",
+      "stem": "rigor"
+    },
+    "RIMAS": {
+      "spelling": "rimas",
+      "stem": "rimar"
+    },
+    "RINHA": {
+      "spelling": "rinhá",
+      "stem": "rinhar"
+    },
+    "RIRAM": {
+      "spelling": "riram",
+      "stem": "rir"
+    },
+    "RISCO": {
+      "spelling": "risco",
+      "stem": "riscar"
+    },
+    "ROLAR": {
+      "spelling": "rolar",
+      "stem": "rolar"
+    },
+    "RONCO": {
+      "spelling": "ronco",
+      "stem": "roncar"
+    },
+    "ROTAS": {
+      "spelling": "rotas",
+      "stem": "rotar"
+    },
+    "ROTOR": {
+      "spelling": "rotor",
+      "stem": "rotor"
+    },
+    "ROXAS": {
+      "spelling": "roxas",
+      "stem": "roxo"
+    },
+    "ROXOS": {
+      "spelling": "roxos",
+      "stem": "roxo"
+    },
+    "RUGAS": {
+      "spelling": "rugas",
+      "stem": "rugar"
+    },
+    "RUIVA": {
+      "spelling": "ruiva",
+      "stem": "ruivo"
+    },
+    "RUIVO": {
+      "spelling": "ruivo",
+      "stem": "ruivo"
+    },
+    "RUMAR": {
+      "spelling": "rumar",
+      "stem": "rumar"
+    },
+    "RUMOS": {
+      "spelling": "rumos",
+      "stem": "rumos"
+    },
+    "RURAL": {
+      "spelling": "rural",
+      "stem": "rural"
+    },
+    "SABIA": {
+      "spelling": "sabia",
+      "stem": "saber"
+    },
+    "SABIO": {
+      "spelling": "sábio",
+      "stem": "sábio"
+    },
+    "SACRA": {
+      "spelling": "sacra",
+      "stem": "sacro"
+    },
+    "SACRO": {
+      "spelling": "sacro",
+      "stem": "sacro"
+    },
+    "SAFRA": {
+      "spelling": "safra",
+      "stem": "safre"
+    },
+    "SAGUI": {
+      "spelling": "sagui",
+      "stem": "sagui"
+    },
+    "SAIAS": {
+      "spelling": "saiãs",
+      "stem": "saião"
+    },
+    "SALAS": {
+      "spelling": "salás",
+      "stem": "salá"
+    },
+    "SALGA": {
+      "spelling": "salgá",
+      "stem": "salgar"
+    },
+    "SAMBA": {
+      "spelling": "sambá",
+      "stem": "sambar"
+    },
+    "SARAR": {
+      "spelling": "sarar",
+      "stem": "sarar"
+    },
+    "SEARA": {
+      "spelling": "seara",
+      "stem": "seara"
+    },
+    "SECAO": {
+      "spelling": "seção",
+      "stem": "seção"
+    },
+    "SECAS": {
+      "spelling": "secas",
+      "stem": "secar"
+    },
+    "SECOS": {
+      "spelling": "secos",
+      "stem": "secos"
+    },
+    "SELOS": {
+      "spelling": "selos",
+      "stem": "selos"
+    },
+    "SENAO": {
+      "spelling": "senão",
+      "stem": "senão"
+    },
+    "SENHA": {
+      "spelling": "senha",
+      "stem": "senho"
+    },
+    "SENIL": {
+      "spelling": "senil",
+      "stem": "senil"
+    },
+    "SENTA": {
+      "spelling": "sentá",
+      "stem": "sentar"
+    },
+    "SEREI": {
+      "spelling": "serei",
+      "stem": "ser"
+    },
+    "SEXOS": {
+      "spelling": "sexos",
+      "stem": "sexos"
+    },
+    "SIDRA": {
+      "spelling": "sidra",
+      "stem": "sidra"
+    },
+    "SILVO": {
+      "spelling": "silvo",
+      "stem": "silvar"
+    },
+    "SINOS": {
+      "spelling": "sinos",
+      "stem": "sinos"
+    },
+    "SIRVA": {
+      "spelling": "sirva",
+      "stem": "servir"
+    },
+    "SISMO": {
+      "spelling": "sismo",
+      "stem": "sismar"
+    },
+    "SOBEM": {
+      "spelling": "sobem",
+      "stem": "subir"
+    },
+    "SOBRO": {
+      "spelling": "sobro",
+      "stem": "sobrar"
+    },
+    "SOCAR": {
+      "spelling": "socar",
+      "stem": "socar"
+    },
+    "SOCOS": {
+      "spelling": "socós",
+      "stem": "socó"
+    },
+    "SODIO": {
+      "spelling": "sódio",
+      "stem": "sódio"
+    },
+    "SOFAS": {
+      "spelling": "sofás",
+      "stem": "sofá"
+    },
+    "SOLAS": {
+      "spelling": "solas",
+      "stem": "solar"
+    },
+    "SOLDA": {
+      "spelling": "soldá",
+      "stem": "soldar"
+    },
+    "SOMAS": {
+      "spelling": "somas",
+      "stem": "somar"
+    },
+    "SONSA": {
+      "spelling": "sonsa",
+      "stem": "sonso"
+    },
+    "SONSO": {
+      "spelling": "sonso",
+      "stem": "sonso"
+    },
+    "SOROS": {
+      "spelling": "sorós",
+      "stem": "soró"
+    },
+    "SOUTO": {
+      "spelling": "souto",
+      "stem": "soutar"
+    },
+    "SUADO": {
+      "spelling": "suado",
+      "stem": "suadir"
+    },
+    "SUECO": {
+      "spelling": "sueco",
+      "stem": "sueco"
+    },
+    "SUINA": {
+      "spelling": "suiná",
+      "stem": "suiná"
+    },
+    "SUINO": {
+      "spelling": "suíno",
+      "stem": "suíno"
+    },
+    "SUMIR": {
+      "spelling": "sumir",
+      "stem": "sumir"
+    },
+    "SUMOS": {
+      "spelling": "sumôs",
+      "stem": "sumô"
+    },
+    "SUNGA": {
+      "spelling": "sungá",
+      "stem": "sungar"
+    },
+    "SUPOR": {
+      "spelling": "supor",
+      "stem": "supor"
+    },
+    "SURRA": {
+      "spelling": "surrá",
+      "stem": "surrar"
+    },
+    "TACAR": {
+      "spelling": "tacar",
+      "stem": "tacar"
+    },
+    "TACOS": {
+      "spelling": "tacos",
+      "stem": "tacos"
+    },
+    "TALCO": {
+      "spelling": "talco",
+      "stem": "talco"
+    },
+    "TALHA": {
+      "spelling": "talhá",
+      "stem": "talhar"
+    },
+    "TALOS": {
+      "spelling": "talos",
+      "stem": "talos"
+    },
+    "TAMPA": {
+      "spelling": "tampá",
+      "stem": "tampar"
+    },
+    "TAPAR": {
+      "spelling": "tapar",
+      "stem": "tapar"
+    },
+    "TAPAS": {
+      "spelling": "tapas",
+      "stem": "tapar"
+    },
+    "TAPIR": {
+      "spelling": "tapir",
+      "stem": "tapir"
+    },
+    "TARJA": {
+      "spelling": "tarjá",
+      "stem": "tarjar"
+    },
+    "TARSO": {
+      "spelling": "tarso",
+      "stem": "tarso"
+    },
+    "TATIL": {
+      "spelling": "tátil",
+      "stem": "tátil"
+    },
+    "TATOS": {
+      "spelling": "tatos",
+      "stem": "tato"
+    },
+    "TATUA": {
+      "spelling": "tatuá",
+      "stem": "tatuar"
+    },
+    "TCHAU": {
+      "spelling": "tchau",
+      "stem": "tchau"
+    },
+    "TEDIO": {
+      "spelling": "tédio",
+      "stem": "tédio"
+    },
+    "TEIMA": {
+      "spelling": "teimá",
+      "stem": "teimar"
+    },
+    "TEMAS": {
+      "spelling": "temas",
+      "stem": "temer"
+    },
+    "TENAZ": {
+      "spelling": "tenaz",
+      "stem": "tenaz"
+    },
+    "TENOR": {
+      "spelling": "tenor",
+      "stem": "tenor"
+    },
+    "TERCA": {
+      "spelling": "terçã",
+      "stem": "terção"
+    },
+    "TERCO": {
+      "spelling": "terço",
+      "stem": "terçar"
+    },
+    "TERNO": {
+      "spelling": "terno",
+      "stem": "ternar"
+    },
+    "TETOS": {
+      "spelling": "tetos",
+      "stem": "tetos"
+    },
+    "TIARA": {
+      "spelling": "tiara",
+      "stem": "tiara"
+    },
+    "TIBIA": {
+      "spelling": "tíbia",
+      "stem": "tíbio"
+    },
+    "TIMAO": {
+      "spelling": "timão",
+      "stem": "timão"
+    },
+    "TINHA": {
+      "spelling": "tinha",
+      "stem": "ter"
+    },
+    "TINIR": {
+      "spelling": "tinir",
+      "stem": "tinir"
+    },
+    "TIPOS": {
+      "spelling": "tipos",
+      "stem": "tipo"
+    },
+    "TIRAS": {
+      "spelling": "tiras",
+      "stem": "tirar"
+    },
+    "TITIA": {
+      "spelling": "titia",
+      "stem": "titio"
+    },
+    "TITIO": {
+      "spelling": "títio",
+      "stem": "títio"
+    },
+    "TOLAS": {
+      "spelling": "tolãs",
+      "stem": "tolão"
+    },
+    "TOLOS": {
+      "spelling": "tolos",
+      "stem": "tolos"
+    },
+    "TOMBO": {
+      "spelling": "tombo",
+      "stem": "tombar"
+    },
+    "TOPAR": {
+      "spelling": "topar",
+      "stem": "topar"
+    },
+    "TOPOS": {
+      "spelling": "tópos",
+      "stem": "tópos"
+    },
+    "TORAX": {
+      "spelling": "tórax",
+      "stem": "tórax"
+    },
+    "TOSAR": {
+      "spelling": "tosar",
+      "stem": "tosar"
+    },
+    "TOSCO": {
+      "spelling": "tosco",
+      "stem": "toscar"
+    },
+    "TOSSE": {
+      "spelling": "tosse",
+      "stem": "tossir"
+    },
+    "TRAGO": {
+      "spelling": "trago",
+      "stem": "tragar"
+    },
+    "TRATO": {
+      "spelling": "trato",
+      "stem": "tratar"
+    },
+    "TRECO": {
+      "spelling": "treçó",
+      "stem": "treçó"
+    },
+    "TRELA": {
+      "spelling": "trela",
+      "stem": "treler"
+    },
+    "TRETA": {
+      "spelling": "treta",
+      "stem": "treta"
+    },
+    "TRUFA": {
+      "spelling": "trufá",
+      "stem": "trufar"
+    },
+    "TUBOS": {
+      "spelling": "tubos",
+      "stem": "tubos"
+    },
+    "TUCUM": {
+      "spelling": "tucum",
+      "stem": "tucum"
+    },
+    "TUMOR": {
+      "spelling": "tumor",
+      "stem": "tumor"
+    },
+    "TUPIS": {
+      "spelling": "tupis",
+      "stem": "tupir"
+    },
+    "TURVA": {
+      "spelling": "turvá",
+      "stem": "turvar"
+    },
+    "TURVO": {
+      "spelling": "turvo",
+      "stem": "turvar"
+    },
+    "TUTOR": {
+      "spelling": "tutor",
+      "stem": "tutor"
+    },
+    "UIVAR": {
+      "spelling": "uivar",
+      "stem": "uivar"
+    },
+    "UMIDO": {
+      "spelling": "úmido",
+      "stem": "úmido"
+    },
+    "UNTAR": {
+      "spelling": "untar",
+      "stem": "untar"
+    },
+    "URINA": {
+      "spelling": "uriná",
+      "stem": "urinar"
+    },
+    "URNAS": {
+      "spelling": "urnas",
+      "stem": "urna"
+    },
+    "URROS": {
+      "spelling": "urros",
+      "stem": "urros"
+    },
+    "URSOS": {
+      "spelling": "ursos",
+      "stem": "urso"
+    },
+    "USUAL": {
+      "spelling": "usual",
+      "stem": "usual"
+    },
+    "VADIA": {
+      "spelling": "vadiá",
+      "stem": "vadiar"
+    },
+    "VADIO": {
+      "spelling": "vadio",
+      "stem": "vadiar"
+    },
+    "VAIAR": {
+      "spelling": "vaiar",
+      "stem": "vaiar"
+    },
+    "VAIAS": {
+      "spelling": "vaias",
+      "stem": "vaiar"
+    },
+    "VALES": {
+      "spelling": "vales",
+      "stem": "valar"
+    },
+    "VALSA": {
+      "spelling": "valsá",
+      "stem": "valsar"
+    },
+    "VARAS": {
+      "spelling": "varas",
+      "stem": "varar"
+    },
+    "VAZAO": {
+      "spelling": "vazão",
+      "stem": "vazão"
+    },
+    "VEADO": {
+      "spelling": "veado",
+      "stem": "veado"
+    },
+    "VEDAR": {
+      "spelling": "vedar",
+      "stem": "vedar"
+    },
+    "VELAR": {
+      "spelling": "velar",
+      "stem": "velar"
+    },
+    "VELHA": {
+      "spelling": "velhã",
+      "stem": "velhão"
+    },
+    "VENIA": {
+      "spelling": "vênia",
+      "stem": "vênia"
+    },
+    "VERAS": {
+      "spelling": "verás",
+      "stem": "ver"
+    },
+    "VERBA": {
+      "spelling": "verba",
+      "stem": "verbo"
+    },
+    "VERME": {
+      "spelling": "verme",
+      "stem": "verme"
+    },
+    "VESPA": {
+      "spelling": "vespa",
+      "stem": "vespa"
+    },
+    "VETAR": {
+      "spelling": "vetar",
+      "stem": "vetar"
+    },
+    "VICIO": {
+      "spelling": "vicio",
+      "stem": "viciar"
+    },
+    "VIELA": {
+      "spelling": "viela",
+      "stem": "vielo"
+    },
+    "VIGOR": {
+      "spelling": "vigor",
+      "stem": "vigor"
+    },
+    "VIMOS": {
+      "spelling": "vimos",
+      "stem": "ver"
+    },
+    "VINDA": {
+      "spelling": "vinda",
+      "stem": "vir"
+    },
+    "VINDO": {
+      "spelling": "vindo",
+      "stem": "vir"
+    },
+    "VOGAL": {
+      "spelling": "vogal",
+      "stem": "vogal"
+    },
+    "VOGAR": {
+      "spelling": "vogar",
+      "stem": "vogar"
+    },
+    "VOZES": {
+      "spelling": "vozes",
+      "stem": "voz"
+    },
+    "VULVA": {
+      "spelling": "vulva",
+      "stem": "vulva"
+    },
+    "XINGA": {
+      "spelling": "xingá",
+      "stem": "xingar"
+    },
+    "XUCRO": {
+      "spelling": "xucro",
+      "stem": "xucro"
+    },
+    "ZANGA": {
+      "spelling": "zangá",
+      "stem": "zangar"
+    },
+    "ZERAR": {
+      "spelling": "zerar",
+      "stem": "zerar"
+    },
+    "ZINCO": {
+      "spelling": "zinco",
+      "stem": "zincar"
+    },
+    "ZOMBA": {
+      "spelling": "zombá",
+      "stem": "zombar"
+    },
+    "ZONAS": {
+      "spelling": "zonas",
+      "stem": "zonar"
+    },
+    "ZORRO": {
+      "spelling": "zorro",
+      "stem": "zorro"
+    }
+  }
+}

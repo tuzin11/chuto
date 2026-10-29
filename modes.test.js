@@ -2,6 +2,9 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const vm = require('node:vm');
 const fs = require('node:fs');
+const { dailyTargets } = require('./game.js');
+const SINGLE = dailyTargets('2026-10-29', 1)[0];
+const [DUET_FIRST, DUET_SECOND] = dailyTargets('2026-10-29', 2);
 
 function setup({ storage = new Map(), clock = { now: Date.parse("2026-10-29T15:00:00Z") } } = {}) {
   class Element {
@@ -42,19 +45,19 @@ test('parallel boards, solved board freezes, mode switching preserves progress, 
   app.tabs[1].listeners.click();
   assert.equal(app.board().length, 2);
   assert.equal(app.board()[0].children.at(-1).children.length, 35);
-  // Initial single answer is AMIGO; duet excludes it and draws TERMO, PRAIA.
-  await guess(app, 'TERMO');
-  assert.equal(row(app.board()[0], 0), 'TERMO');
+  // Each mode uses its fixed, disjoint daily answers.
+  await guess(app, DUET_FIRST);
+  assert.equal(row(app.board()[0], 0), DUET_FIRST);
   assert.ok(app.board()[0].classList.contains('solved'));
-  assert.equal(row(app.board()[1], 0), 'TERMO');
+  assert.equal(row(app.board()[1], 0), DUET_FIRST);
   app.tabs[2].listeners.click();
   assert.equal(app.board().length, 4);
   assert.equal(app.board()[0].children.at(-1).children.length, 45);
   app.tabs[1].listeners.click();
-  assert.equal(row(app.board()[1], 0), 'TERMO');
-  await guess(app, 'PRAIA');
+  assert.equal(row(app.board()[1], 0), DUET_FIRST);
+  await guess(app, DUET_SECOND);
   assert.equal(row(app.board()[0], 1), '');
-  assert.equal(row(app.board()[1], 1), 'PRAIA');
+  assert.equal(row(app.board()[1], 1), DUET_SECOND);
   assert.equal(app.get('stats-games').textContent, 1);
   assert.equal(app.get('stats-percent').textContent, '100%');
   assert.equal(app.get('stats-distribution').children.length, 8);
@@ -142,7 +145,7 @@ for (const [mode, tab] of [[1, 0], [2, 1], [4, 2], [8, 3]]) {
 }
 
 test('finished game reopens stats on any tile, board space or virtual control without changing result', async () => {
-  const app = setup(); await guess(app, 'AMIGO');
+  const app = setup(); await guess(app, SINGLE);
   const tiles = app.board()[0].children.at(-1).children;
   const keys = app.get('keyboard').querySelectorAll('[data-key]');
   const actions = [
@@ -157,7 +160,7 @@ test('finished game reopens stats on any tile, board space or virtual control wi
     app.get('stats-dialog').close(); await action();
     assert.equal(app.get('stats-dialog').open, true);
     assert.equal(app.get('stats-games').textContent, 1);
-    assert.equal(row(app.board()[0], 0), 'AMIGO');
+    assert.equal(row(app.board()[0], 0), SINGLE);
   }
 });
 
@@ -174,9 +177,8 @@ for (const [mode, tab] of [[1, 0], [2, 1], [4, 2], [8, 3]]) {
     await guess(app, 'ZZZZZ'); // Rejected guesses must not unlock the next row.
     check(0);
     for (let i = 0; i < 5; i++) await app.get('keyboard').querySelectorAll('[data-key]').find(key => key.dataset.key === 'BACKSPACE').listeners.click();
-    const pending = guess(app, 'TERMO');
+    const pending = guess(app, DUET_FIRST);
     await pending;
-    check(1, mode === 2 ? [0] : []);
     check(1, mode === 2 ? [0] : []);
   });
 }
@@ -185,25 +187,25 @@ for (const [mode, tab] of [[1, 0], [2, 1], [4, 2], [8, 3]]) {
 test('daily progress and completed result survive reload without counting twice', async () => {
   const storage = new Map();
   let app = setup({ storage });
-  await guess(app, 'TERMO');
+  await guess(app, DUET_FIRST);
   app = setup({ storage });
-  assert.equal(row(app.board()[0], 0), 'TERMO');
-  await guess(app, 'AMIGO');
+  assert.equal(row(app.board()[0], 0), DUET_FIRST);
+  await guess(app, SINGLE);
   app = setup({ storage });
   assert.equal(app.get('stats-games').textContent, 1);
   assert.equal(app.get('stats-dialog').open, true);
   app.get('close-stats').listeners.click();
   assert.equal(app.get('stats-games').textContent, 1);
-  assert.equal(row(app.board()[0], 1), 'AMIGO');
+  assert.equal(row(app.board()[0], 1), SINGLE);
 });
 
 test('midnight in Brasilia resets all modes and keeps statistics', async () => {
   const storage = new Map(), clock = { now: Date.parse('2026-10-30T02:59:59Z') };
   const app = setup({ storage, clock });
-  await guess(app, 'AMIGO');
+  await guess(app, SINGLE);
   app.get('stats-dialog').close();
   app.tabs[1].listeners.click();
-  await guess(app, 'TERMO');
+  await guess(app, DUET_FIRST);
   clock.now = Date.parse('2026-10-30T03:00:00Z');
   app.events.visibilitychange();
   assert.equal(row(app.board()[0], 0), '     ');
@@ -211,14 +213,14 @@ test('midnight in Brasilia resets all modes and keeps statistics', async () => {
   assert.equal(row(app.board()[0], 0), '     ');
   app.get('show-stats').listeners.click();
   assert.equal(app.get('stats-games').textContent, 1);
-  assert.ok(storage.has('chuto-daily-v1:2026-10-29'));
+  assert.ok(storage.has('chuto-daily-v2:2026-10-29'));
 });
 
 
 test('all users get the same daily word, regardless of random or browser history', async () => {
-  const first = setup(), second = setup({ storage: new Map([['chuto-word-history-v1', JSON.stringify({ used: ['AMIGO'], recent: ['AMIGO'] })]]) });
+  const first = setup(), second = setup({ storage: new Map([['chuto-word-history-v1', JSON.stringify({ used: [SINGLE], recent: [SINGLE] })]]) });
   for (const app of [first, second]) {
-    await guess(app, 'AMIGO');
+    await guess(app, SINGLE);
     assert.equal(app.get('stats-percent').textContent, '100%');
     assert.equal(app.get('keyboard').hidden, true);
     assert.equal(app.get('share-result').hidden, false);
@@ -231,14 +233,14 @@ test('completed game stays locked and shareable in a new browser session', async
   const storage = new Map();
   let app = setup({ storage });
   assert.equal(app.get('share-result').hidden, true);
-  await guess(app, 'AMIGO');
+  await guess(app, SINGLE);
   app = setup({ storage });
-  assert.equal(row(app.board()[0], 0), 'AMIGO');
+  assert.equal(row(app.board()[0], 0), SINGLE);
   assert.equal(app.get('keyboard').hidden, true);
   assert.equal(app.get('share-result').hidden, false);
   app.get('close-stats').listeners.click();
-  await guess(app, 'TERMO');
-  assert.equal(row(app.board()[0], 0), 'AMIGO');
+  await guess(app, DUET_FIRST);
+  assert.equal(row(app.board()[0], 0), SINGLE);
   assert.equal(app.get('stats-games').textContent, 1);
 });
 
@@ -247,16 +249,33 @@ test('reload resumes the selected mode and its completed daily game', async () =
   const storage = new Map();
   let app = setup({ storage });
   app.tabs[1].listeners.click();
-  await guess(app, 'TERMO');
+  await guess(app, DUET_FIRST);
   app = setup({ storage });
   assert.equal(app.board().length, 2);
-  assert.equal(row(app.board()[1], 0), 'TERMO');
-  await guess(app, 'PRAIA');
+  assert.equal(row(app.board()[1], 0), DUET_FIRST);
+  await guess(app, DUET_SECOND);
   app = setup({ storage });
   assert.equal(app.board().length, 2);
-  assert.equal(row(app.board()[1], 1), 'PRAIA');
+  assert.equal(row(app.board()[1], 1), DUET_SECOND);
   assert.equal(app.get('stats-dialog').open, true);
   assert.equal(app.get('keyboard').hidden, true);
   assert.equal(app.get('share-result').hidden, false);
   assert.equal(app.get('stats-games').textContent, 1);
+});
+
+
+test('explicit daily reset ignores old daily games while preserving statistics', async () => {
+  const storage = new Map([
+    ['chuto-daily-v1:2026-10-29', JSON.stringify([[1, { targets: ['AMIGO'], finished: true, guesses: [{ word: 'AMIGO' }] }]])],
+    ['chuto-stats-v1:1', JSON.stringify({ games: 3, wins: 2, streak: 1, best: 2, distribution: [1, 1, 0, 0, 0, 0, 1] })]
+  ]);
+  let app = setup({ storage });
+  assert.equal(row(app.board()[0], 0), '     ');
+  assert.equal(app.get('keyboard').hidden, false);
+  assert.notEqual(SINGLE, 'AMIGO');
+  await guess(app, SINGLE);
+  assert.equal(app.get('stats-games').textContent, 4);
+  app = setup({ storage });
+  assert.equal(row(app.board()[0], 0), SINGLE);
+  assert.equal(app.get('stats-games').textContent, 4);
 });

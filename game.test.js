@@ -138,3 +138,18 @@ test('all answers are consumed before repeating across games and days', () => {
   assert.equal(new Set(sequence.slice(0, answers.length)).size, answers.length);
   assert.deepEqual(sequence.slice(answers.length, answers.length * 2), sequence.slice(0, answers.length));
 });
+
+
+test('expanded answer bank has lexical evidence in Brazilian Portuguese', () => {
+  const expansion = require('./answer-expansion.json');
+  const audit = require('./dictionary-audit.json');
+  assert.ok(answers.length >= 1200);
+  assert.equal(new Set(answers).size, answers.length);
+  assert.ok(Object.keys(expansion.added).length >= 600);
+  for (const [word, evidence] of Object.entries(expansion.added)) {
+    assert.ok(answers.includes(word));
+    assert.equal(word.length, 5);
+    assert.equal(normalize(evidence.spelling), word);
+    assert.deepEqual(evidence, audit.retained[word]);
+  }
+});

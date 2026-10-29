@@ -35,10 +35,14 @@ A ampliação inclui os arquivos `lexico` e `conjugações` de https://github.co
 
 A lista original de 13.701 entradas foi cruzada com o VERO (portugues brasileiro), distribuido pelo LibreOffice: https://github.com/LibreOffice/dictionaries/tree/master/pt_BR. Foram mantidas 11.905 entradas e excluidas 1.796 sem respaldo nesta verificacao, incluindo nomes proprios, siglas e numerais romanos. A ausencia nesta base nao prova que um termo inexiste; este e um criterio conservador para o jogo, nao uma certificacao semantica individual.
 
-A validacao considera verbetes originalmente em minusculas e flexoes autorizadas pelas regras Hunspell, com consulta ortografica antes de remover acentos e cedilha. Formas com acentos, plurais e conjugacoes continuam aceitas. As 555 respostas do sorteio passaram pelo mesmo filtro.
+A validacao considera verbetes originalmente em minusculas e flexoes autorizadas pelas regras Hunspell, com consulta ortografica antes de remover acentos e cedilha. Formas com acentos, plurais e conjugacoes continuam aceitas. As 1.260 respostas passaram pelo mesmo filtro lexical.
 
 `dictionary-audit.json` registra todas as exclusoes e, para cada entrada mantida, uma grafia original e seu radical de origem. Os hashes das fontes tambem ficam no relatorio. As fontes VERO estao em `auditoria-fontes/`; seus creditos e termos LGPLv3/MPL estao em `dicionario-vero-LICENSE.txt`. Para repetir a auditoria, instale `spylls==0.1.7` em `.audit-tools` e execute `python audit-dictionary.py`.
 
 As respostas diárias são calculadas pela data de Brasília. Palpites, letras em edição, resultado e estatísticas ficam no localStorage, separados por data e modo. Se o armazenamento for bloqueado ou apagado, o progresso deixa de persistir.
 
-Os quatro modos recebem 15 respostas distintas por dia (1 + 2 + 4 + 8). A agenda percorre todo o banco de 555 respostas antes de repetir, em ciclos de 37 dias, iguais para todos os jogadores.
+Os quatro modos recebem 15 respostas distintas por dia (1 + 2 + 4 + 8). A agenda percorre todo o banco de 1.260 respostas antes de repetir, em ciclos de 84 dias, iguais para todos os jogadores.
+
+A ampliação adiciona 705 palavras selecionadas para o português brasileiro, como ABRIR, AIPIM, CHUVA, HOMEM, LEITE e SAMBA. `answer-expansion.json` registra a grafia e o radical de cada adição, conferidos na auditoria VERO pt_BR local. A lista de respostas continua separada do dicionário de palpites.
+
+Em 29/10/2026, os desafios foram renovados a pedido do autor. O armazenamento diário usa a versão v2 para iniciar os novos jogos, preservando as estatísticas acumuladas e o modo selecionado. Depois desse reset, recarregar a página continua restaurando a mesma partida até a meia-noite de Brasília.
