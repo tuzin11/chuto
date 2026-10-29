@@ -105,3 +105,16 @@ test('dicionario corresponde integralmente a auditoria lexical e exclui ruido', 
     assert.ok(dictionary.has(normalize(entry.spelling)));
   }
 });
+
+const { dailyDate, dailyTargets } = require('./game.js');
+test('desafio muda somente a meia-noite de Brasilia e independe do navegador', () => {
+  assert.equal(dailyDate(new Date('2026-10-30T02:59:59Z')), '2026-10-29');
+  assert.equal(dailyDate(new Date('2026-10-30T03:00:00Z')), '2026-10-30');
+  for (const mode of [1, 2, 4, 8]) {
+    const today = dailyTargets('2026-10-29', mode);
+    assert.equal(new Set(today).size, mode);
+    assert.deepEqual(today, dailyTargets('2026-10-29', mode));
+    assert.notDeepEqual(today, dailyTargets('2026-10-30', mode));
+    assert.ok(today.every(word => dictionary.has(word)));
+  }
+});

@@ -6,6 +6,17 @@ const answers = 'AMIGO TERMO PRAIA LIVRO SONHO NUVEM FESTA VERDE BRISA CAMPO TIG
 // Keep answers curated: the larger dictionary also contains uncommon inflections.
 answers.push(...'ABRIL ACASO ACENO ACIMA ACRES ADEUS AFETO AGORA AGUDO AINDA AJUDA ALBUM ALGUM ALUNO AMADO AMBOS AMPLO ANDAR ANEXO ANIMO ANJOS ANTES APOIO ARAME ARCAR ARDOR ASTRO ATIVO ATLAS ATRAS ATUAL AUDIO AUTOR AVIAO AVISO BAIXO BALAO BALDE BANCO BANHO BARCO BARRA BARRO BASTA BATOM BEIJO BEIRA BELOS BICHO BOLSA BOMBA BORDA BRACO BRAVO BREVE BRILHO BROTO BRUTO BUSCA CABER CABRA CACAU CAIXA CALDO CALOR CANAL CAPAZ CAPIM CARGA CARNE CARRO CARTA CASAL CASCA CAUSA CEDER CENSO CERCA CERTO CESTA CICLO CINCO CINTO CINZA CLARO CLIMA CLUBE COBRA COFRE COISA COLAR COMER CONTO CORAL CORDA CORPO CORTE COSTA COURO CRAVO CRIME CRISE CRUEL CULPA CURSO CURTO CURVA DADOS DANCA DEIXA DENTE DESDE DEVER DIABO DIGNO DISCO DIZER DOBRO DOIDO DONOS DOUTO DRAMA DUPLA DUQUE DURAR DUVIDA EIXOS ELITE ENFIM ENTRE ENVIO ERROS ESCOL ESTAR ETAPA EXATO EXITO EXTRA FACIL FALHA FALTA FALSO FARTO FATAL FAUNA FEBRE FEIRA FEITO FELIZ FERAS FERRO FICAR FILHO FILME FINAL FIRME FISICO FITAS FIXAR FOGAO FOLIA FONTE FORCA FORMA FORNO FORTE FORUM FOSSO FREIO FRENTE FRITO FUGAZ FUNDO FURIA FUSAO GARRA GASTO GEADA GELAR GEMAS GENIO GENTE GESTO GIRAR GLOBO GOLPE GORDO GOSTO GOZAR GRAMA GRATO GRAVE GRILO GRUPO GUIAR HAVER HEROI HONRA HOTEL HUMOR IDEAL IDOSO IGUAL ILHAS IMPAR INDIO IRMAO JANTA JARRA JOGAR JOVEM JULHO JUNHO JUSTO LABIO LACOS LADOS LAGOA LAPIS LARGO LASER LATIM LAZER LEGAL LEMAS LENTE LENTO LESAO LEVAR LIDAR LIMAO LIMPO LINDA LINHA LISTA LIXAR LOBOS LOCAL LOIRA LONGE LOUCO LOUSA LUCRO LUGAR LUNAR LUTAR MACIO MADRE MAIOR MALHA MAMAE MANGA MANHA MANSO MANTO MARCA MARCO MARES MASSA MATAR MEDIA MEDIR MEIGO MENOR MENOS MENTE MESMO METAL METRO MEXER MILHO MINHA MIOLO MOEDA MOLDE MOLHO MONTE MORAL MORAR MORNO MORTE MOTOR MOVER MUITO MURAL MUSGO NADAR NARIZ NATAL NAVAL NAVIO NEGAR NEGRO NENEM NESTE NETOS NIVEL NOBRE NORTE NOSSA NOTAR NOVOS NUNCA OBTER OESTE OLHAR ONTEM OPCAO ORDEM ORGAO OSSOS OUVIR OVALO OVELHA PADRE PAGAR PALCO PALHA PALMA PAPAI PAPEL PARAR PARDO PARTE PASSO PASTA PATIO PAUSA PEITO PEIXE PELAS PENAS PENSO PERDA PERTO PESAR PIANO PICAR PILHA PINHO PINTO PIRES PISTA PLACA PLANO PLENO PODER POEMA POETA POLVO POMAR POMBO PONTO PORCO PORTA PORTO POSSE POSTE PRADO PRAGA PRAZO PRECO PREGO PRESA PRETO PRIMA PRIMO PROSA PROVA PUDIM PULAR PULGA PULSO PUNHO QUASE QUEDA QUEIJO QUERO QUINA QUOTA RADIO RAIVA RAMOS RAPAZ RASGO RASTO RAZAO REBANHO RECUO REDES REGRA REINO RENDA RENTE RESTO RETAS REVER RIMAR RITMO RIVAL ROCHA RODAR ROLHA ROSAS ROSTO ROUPA SABER SACAR SACOS SAGAZ SAIDA SALAO SALDO SALSA SALTO SALVA SANTO SAUDE SECAR SEDAS SEGUE SEIVA SELVA SENSO SERIO SERRA SERVE SETOR SIGLA SINAL SINTO SITIO SOBRA SOBRE SOCIO SOGRA SOLAR SOLTO SOMAR SONDA SOPRO SORO SOTAO SUAVE SUBIR SUCOS SUJAR SUPER SURDO SURFE SURTO SUSTO TABUA TANGA TANTO TARDE TAXAS TECER TECLA TELAS TEMER TENDA TENIS TENRO TENSO TERRA TESTA TEXTO TINTA TIRAR TOCAR TODAS TOMAR TONTO TORRE TORTA TOTAL TOUCA TOURO TRACO TRAJE TRAMA TREMO TRENO TREVO TRIBO TRIGO TRILHA TROCA TRONO TRUCO TURMA TURNO UNIAO UNICO UNIDO URUBU USADO USINA UTENS UVAIS VAGAO VAGAS VALER VALOR VAPOR VARAL VASOS VASTO VAZIO VELAS VELHO VELOZ VENDA VENTO VERAO VERBO VERSO VESTE VEZES VIDEO VIDRO VIGIA VILAO VINHO VINTE VIOLA VIRAR VIRUS VISAR VISTA VITAL VIUVA VIVER VOLTA VOTAR VULTO XAMPU ZEBRA ZELAR'.split(' ').filter(word => dictionary.has(word) && !answers.includes(word)));
 const answerPool = [...new Set(answers)];
+// One calendar day for all players, independent of the device timezone.
+function dailyDate(now = new Date()) {
+  const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(now);
+  const part = type => parts.find(item => item.type === type).value;
+  return `${part('year')}-${part('month')}-${part('day')}`;
+}
+function dailyTargets(day, mode, pool = answerPool) {
+  const index = Math.floor((Date.parse(day + 'T00:00:00Z') - Date.UTC(2026, 9, 29)) / 86400000);
+  const offset = mode === 1 ? 0 : 1;
+  return Array.from({ length: mode }, (_, n) => pool[((index * 16 + offset + n) % pool.length + pool.length) % pool.length]);
+}
 function createWordDraw({ storage, random = Math.random, pool = answerPool } = {}) {
   const key = 'chuto-word-history-v1';
   const words = [...new Set(pool)];
@@ -99,7 +110,7 @@ function drawGameImage(canvas, { mode, limit, targets, guesses, current, finishe
   text('Verde: posição certa  ·  Amarelo: outra posição', padding, height - 28, '12px sans-serif', '#8f9791');
   return canvas;
 }
-if (typeof module !== 'undefined') module.exports = { scoreGuess, normalize, dictionary, answers, recordResult, drawGameImage, createWordDraw };
+if (typeof module !== 'undefined') module.exports = { scoreGuess, normalize, dictionary, answers, recordResult, drawGameImage, createWordDraw, dailyDate, dailyTargets };
 if (typeof document !== 'undefined') {
   const board = document.getElementById('board');
   const keyboard = document.getElementById('keyboard');
@@ -110,7 +121,26 @@ if (typeof document !== 'undefined') {
   const sessions = new Map();
   let wordStorage;
   try { wordStorage = window.localStorage; } catch (_) {}
-  const drawWords = createWordDraw({ storage: wordStorage });
+  let day = dailyDate();
+  function saveSession() {
+    sessions.set(mode, { targets, solved, boardKeys, guesses, current, cursor, finished, stats, lastResult, text: message.textContent, success: message.classList.contains('success') });
+    try {
+      wordStorage.setItem(`chuto-daily-v1:${day}`, JSON.stringify([...sessions]));
+      wordStorage.setItem(`chuto-stats-v1:${mode}`, JSON.stringify(stats));
+    } catch (_) { /* The game still works when storage is blocked. */ }
+  }
+  try {
+    const saved = JSON.parse(wordStorage.getItem(`chuto-daily-v1:${day}`));
+    if (Array.isArray(saved)) for (const [key, value] of saved) {
+      if ([1, 2, 4, 8].includes(key) && Array.isArray(value?.guesses) && value.targets?.join() === dailyTargets(day, key).join()) sessions.set(key, value);
+    }
+  } catch (_) {}
+  function checkDay() {
+    if (revealing || dailyDate() === day) return false;
+    saveSession(); day = dailyDate(); sessions.clear();
+    statsDialog.close(); dialog.close(); restart();
+    return true;
+  }
   let stats = { games: 0, wins: 0, streak: 0, best: 0, distribution: Array(7).fill(0) };
   let lastResult = null;
   function showStats() {
@@ -227,6 +257,7 @@ if (typeof document !== 'undefined') {
 
   async function input(key) {
     if (revealing || dialog.open || statsDialog.open) return;
+    if (checkDay()) return;
     if (reopenFinishedStats()) return;
     if (key === 'ENTER') {
       if (!/^[A-Z]{5}$/.test(current)) return say('Complete as cinco letras antes de confirmar.');
@@ -275,19 +306,36 @@ if (typeof document !== 'undefined') {
       say('');
     }
     render();
+    saveSession();
+    if (checkDay()) return;
     if (finished) showStats();
   }
   function restart() {
     if (revealing) return;
-    targets = drawWords(mode);
+    const saved = sessions.get(mode);
+    if (saved) {
+      ({ targets, solved, boardKeys, guesses, current, cursor, finished, stats, lastResult } = saved);
+      buildBoards(); say(saved.text, saved.success); render();
+      if (finished) showStats();
+      return;
+    }
+    targets = dailyTargets(day, mode);
     solved = Array(mode).fill(false); boardKeys = Array.from({ length: mode }, () => ({}));
     guesses = []; current = '     '; cursor = 0; finished = false;
+    stats = { games: 0, wins: 0, streak: 0, best: 0, distribution: Array(limit + 1).fill(0) };
+    try {
+      const stored = JSON.parse(wordStorage.getItem(`chuto-stats-v1:${mode}`));
+      if (stored && stored.distribution?.length === limit + 1) stats = stored;
+    } catch (_) {}
     lastResult = null;
     buildBoards();
-    say('Digite uma palavra para começar.'); render();
+    say('Desafio do dia. Novo jogo às 00:00 (Brasília).'); render(); saveSession();
   }
+
   function switchMode(next) {
+    checkDay();
     if (revealing || next === mode) return;
+    saveSession();
     sessions.set(mode, { targets, solved, boardKeys, guesses, current, cursor, finished, stats, lastResult, text: message.textContent, success: message.classList.contains('success') });
     mode = next; limit = mode === 1 ? 6 : mode === 2 ? 7 : mode === 4 ? 9 : 13;
     document.body.dataset.mode = mode;
@@ -299,7 +347,7 @@ if (typeof document !== 'undefined') {
     document.querySelector('.board-heading > span').textContent = mode === 1 ? 'ENCONTRE A PALAVRA' : `ENCONTRE AS ${mode} PALAVRAS`;
     document.getElementById('help-title').textContent = `Descubra em ${limit} tentativas.`;
     document.getElementById('mode-help').textContent = mode === 1 ? 'Encontre uma palavra em até seis tentativas.' : `Cada palpite vale para as ${mode} palavras ao mesmo tempo. As cores são independentes em cada tabuleiro e nas faixas do teclado, da esquerda para a direita. Palavras resolvidas param de receber palpites. Você tem ${limit} tentativas para resolver todas.`;
-    document.querySelector('#restart span').textContent = mode === 1 ? 'Nova palavra' : 'Novas palavras';
+    document.querySelector('#restart span').textContent = 'Jogo do dia';
     const saved = sessions.get(mode);
     if (saved) {
       ({ targets, solved, boardKeys, guesses, current, cursor, finished, stats, lastResult } = saved);
@@ -341,4 +389,7 @@ if (typeof document !== 'undefined') {
   document.getElementById('close-help').addEventListener('click', () => dialog.close());
   document.getElementById('start-playing').addEventListener('click', () => dialog.close());
   restart();
+  if (typeof setInterval === 'function') setInterval(checkDay, 1000);
+  document.addEventListener('visibilitychange', checkDay);
+  if (window.addEventListener) window.addEventListener('focus', checkDay);
 }

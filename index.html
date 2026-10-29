@@ -8,14 +8,14 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="style.css?v=2967c0af2a59">
   <script src="dictionary.js?v=797e2bfea448" defer></script>
-  <script src="game.js?v=4790f7d0fb36" defer></script>
+  <script src="game.js?v=f6367904148c" defer></script>
 </head>
 <body>
   <header class="topbar">
     <a class="brand" href="./" aria-label="Chutô, início"><img class="brand-icon" src="favicon.svg" alt="" width="34" height="34"><span>Chutô</span></a>
     <nav class="mode-tabs" aria-label="Modos de jogo"><button type="button" data-mode="1" aria-pressed="true" class="mode-tab selected">Chutô</button><button type="button" data-mode="2" aria-pressed="false" class="mode-tab">Chutô²</button><button type="button" data-mode="4" aria-pressed="false" class="mode-tab">Chutô⁴</button><button type="button" data-mode="8" aria-pressed="false" class="mode-tab">Chutô⁸</button></nav>
     <span class="header-note">UM DESAFIO, CINCO LETRAS.</span>
-    <button class="icon-button" id="show-stats" aria-label="Estatísticas da sessão" title="Estatísticas da sessão">▥</button>
+    <button class="icon-button" id="show-stats" aria-label="Estatísticas" title="Estatísticas">▥</button>
     <button class="icon-button" id="help" aria-label="Como jogar">?</button>
   </header>
   <main>
@@ -39,17 +39,17 @@
         <div id="board" class="board" role="group" aria-label="Tabuleiro com seis tentativas"></div>
         <p id="message" class="message" role="status" aria-live="polite">Digite uma palavra para começar.</p>
         <div id="keyboard" class="keyboard" aria-label="Teclado virtual"></div>
-        <button id="restart" class="restart">↻ <span>Nova palavra</span></button>
+        <button id="restart" class="restart">↻ <span>Jogo do dia</span></button>
       </section>
       <aside class="side-note"><span class="little-grid"><i></i><i></i><i></i><i></i><i></i></span><span>UM POUCO DE LÓGICA.<br>UM TANTO DE INTUIÇÃO.</span></aside>
     </div>
   </main>
   <footer><span>Desenvolvido por Arthur Werlang Cunha</span><span>SEU TECLADO TAMBÉM JOGA <kbd>Enter</kbd> para confirmar</span></footer>
-  <dialog id="help-dialog"><button id="close-help" class="icon-button close" aria-label="Fechar instruções">×</button><span class="eyebrow">COMO JOGAR</span><h2 id="help-title">Descubra em seis tentativas.</h2><p id="mode-help">Encontre uma palavra em até seis tentativas.</p><p>Digite uma palavra de cinco letras e pressione Enter. Verde indica letra na posição certa; amarelo indica letra em outra posição; preto indica que a letra não aparece na palavra.</p><p>Letras repetidas só recebem cor até a quantidade de vezes que aparecem na resposta. Acentos são desconsiderados: MAÇÃS vira MACAS.</p><p>Use as letras do teclado, Backspace para apagar e Enter para confirmar. Clique em uma casa da linha atual para editar uma letra.</p><button id="start-playing" class="primary">Vamos jogar</button></dialog>
+  <dialog id="help-dialog"><button id="close-help" class="icon-button close" aria-label="Fechar instruções">×</button><span class="eyebrow">COMO JOGAR</span><h2 id="help-title">Descubra em seis tentativas.</h2><p id="mode-help">Encontre uma palavra em até seis tentativas.</p><p>Um desafio por dia em cada modo. As palavras mudam às 00:00 no horário de Brasília. Seu progresso fica salvo neste navegador.</p><p>Digite uma palavra de cinco letras e pressione Enter. Verde indica letra na posição certa; amarelo indica letra em outra posição; preto indica que a letra não aparece na palavra.</p><p>Letras repetidas só recebem cor até a quantidade de vezes que aparecem na resposta. Acentos são desconsiderados: MAÇÃS vira MACAS.</p><p>Use as letras do teclado, Backspace para apagar e Enter para confirmar. Clique em uma casa da linha atual para editar uma letra.</p><button id="start-playing" class="primary">Vamos jogar</button></dialog>
   <dialog id="stats-dialog" class="stats-dialog" aria-labelledby="stats-title">
     <button id="close-stats" class="icon-button close" aria-label="Fechar estatísticas">×</button>
     <h2 id="stats-title">progresso</h2>
-    <p class="session-caption">ESTATÍSTICAS DA SESSÃO</p>
+    <p class="session-caption">ESTATÍSTICAS</p>
     <p id="stats-result" class="stats-result" role="status"></p>
     <div class="stats-summary">
       <div><strong id="stats-games">0</strong><span>jogos</span></div>
@@ -59,7 +59,7 @@
     </div>
     <h3>distribuição de tentativas</h3>
     <div id="stats-distribution" class="stats-distribution" aria-label="Distribuição de tentativas e derrotas"></div>
-    <div class="stats-actions"><button id="stats-share" class="share-button" type="button">Compartilhar ↓</button><button id="stats-new-game" class="primary">Nova palavra ↗</button></div>
+    <div class="stats-actions"><button id="stats-share" class="share-button" type="button">Compartilhar ↓</button><button id="stats-new-game" class="primary">Resultado do dia</button></div>
     <p id="share-status" class="share-status" role="status" aria-live="polite"></p>
   </dialog>
 </body>

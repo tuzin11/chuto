@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const vm = require('node:vm');
 const fs = require('node:fs');
 
-function setup() {
+function setup({ storage = new Map(), clock = { now: Date.parse("2026-10-29T15:00:00Z") } } = {}) {
   class Element {
     constructor() { this.children = []; this.dataset = {}; this.style = {}; this.attributes = {}; this.listeners = {}; this.className = ''; this.textContent = ''; this.open = false; }
     get classList() { return { contains: name => this.className.split(' ').includes(name), add: name => { if (!this.classList.contains(name)) this.className += ' ' + name; }, remove: name => { this.className = this.className.split(' ').filter(x => x !== name).join(' '); }, toggle: (name, on) => on ? this.classList.add(name) : this.classList.remove(name) }; }
@@ -23,7 +23,8 @@ function setup() {
   const events = {};
   const document = { body: new Element(), getElementById: get, createElement: () => new Element(), querySelector: get, querySelectorAll: () => tabs, addEventListener(name, callback) { events[name] = callback; } };
   const math = Object.create(Math); math.random = () => 0;
-  const context = vm.createContext({ document, Math: math, window: { matchMedia: () => ({ matches: true }) }, globalThis: { ChutoWords: require('./dictionary.js') } });
+  class FakeDate extends Date { constructor(...args) { super(...(args.length ? args : [clock.now])); } }
+  const context = vm.createContext({ Date: FakeDate, document, Math: math, window: { localStorage: { getItem: key => storage.get(key), setItem: (key, value) => storage.set(key, value) }, matchMedia: () => ({ matches: true }) }, globalThis: { ChutoWords: require('./dictionary.js') } });
   vm.runInContext(fs.readFileSync('game.js', 'utf8'), context);
   return { get, tabs, events, board: () => get('board').children };
 }
@@ -72,8 +73,8 @@ test('quartet accepts nine guesses and records defeat in the final distribution 
   assert.equal(app.get('stats-distribution').children.length, 10);
   assert.equal(app.get('stats-distribution').children[9].children[1].textContent, 1);
   app.get('stats-new-game').listeners.click();
-  assert.equal(app.get('stats-dialog').open, false);
-  assert.equal(row(app.board()[0], 0), '     ');
+  assert.equal(app.get('stats-dialog').open, true);
+  assert.equal(row(app.board()[0], 0), 'NUVEM');
 });
 
 for (const [mode, tab, limit] of [[1, 0, 6], [2, 1, 7], [4, 2, 9], [8, 3, 13]]) {
@@ -97,8 +98,8 @@ for (const [mode, tab, limit] of [[1, 0, 6], [2, 1, 7], [4, 2, 9], [8, 3, 13]]) 
     assert.equal(app.get('stats-games').textContent, 1);
     app.get('stats-new-game').listeners.click();
     await letter.listeners.click();
-    assert.equal(app.get('stats-dialog').open, false);
-    assert.equal(row(app.board()[0], 0), 'A    ');
+    assert.equal(app.get('stats-dialog').open, true);
+    assert.equal(row(app.board()[0], 0), targets[0]);
   });
 }
 
@@ -177,6 +178,39 @@ for (const [mode, tab] of [[1, 0], [2, 1], [4, 2], [8, 3]]) {
     await pending;
     check(1, mode === 1 ? [] : [0]);
     app.get('restart').listeners.click();
-    check(0);
+    check(1, mode === 1 ? [] : [0]);
   });
 }
+
+
+test('daily progress and completed result survive reload without counting twice', async () => {
+  const storage = new Map();
+  let app = setup({ storage });
+  await guess(app, 'TERMO');
+  app = setup({ storage });
+  assert.equal(row(app.board()[0], 0), 'TERMO');
+  await guess(app, 'AMIGO');
+  app = setup({ storage });
+  assert.equal(app.get('stats-games').textContent, 1);
+  assert.equal(app.get('stats-dialog').open, true);
+  app.get('stats-new-game').listeners.click();
+  assert.equal(app.get('stats-games').textContent, 1);
+  assert.equal(row(app.board()[0], 1), 'AMIGO');
+});
+
+test('midnight in Brasilia resets all modes and keeps statistics', async () => {
+  const storage = new Map(), clock = { now: Date.parse('2026-10-30T02:59:59Z') };
+  const app = setup({ storage, clock });
+  await guess(app, 'AMIGO');
+  app.get('stats-dialog').close();
+  app.tabs[1].listeners.click();
+  await guess(app, 'TERMO');
+  clock.now = Date.parse('2026-10-30T03:00:00Z');
+  app.events.visibilitychange();
+  assert.equal(row(app.board()[0], 0), '     ');
+  app.tabs[0].listeners.click();
+  assert.equal(row(app.board()[0], 0), '     ');
+  app.get('show-stats').listeners.click();
+  assert.equal(app.get('stats-games').textContent, 1);
+  assert.ok(storage.has('chuto-daily-v1:2026-10-29'));
+});

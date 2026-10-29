@@ -4,12 +4,12 @@ Jogo de palavras em português para navegador de computador. Abra `index.html` d
 
 - Chutô: uma palavra em seis tentativas. Chutô²: duas palavras em sete tentativas. Chutô⁴: quatro palavras em nove tentativas. Chutô⁸: oito palavras em treze tentativas.
 - Nos modos paralelos, cada palpite vale para todas as palavras ainda não resolvidas. As faixas do teclado mostram as pistas de cada tabuleiro na ordem de leitura.
-- Troque de aba sem perder o progresso. Partidas e estatísticas ficam separadas por modo durante a sessão.
+- Progresso e estatísticas de cada modo ficam salvos neste navegador, inclusive ao recarregar ou fechar a página.
 - Verde: letra na posição correta; amarelo: letra em outra posição; preto: letra ausente.
 - Letras repetidas respeitam a quantidade de ocorrências na resposta.
 - Use o teclado físico ou os botões. Enter confirma e Backspace apaga.
 - Acentos e cedilha são desconsiderados. O dicionário local em `dictionary.js` contém 11.905 palavras de cinco letras e funciona sem conexão.
-- “Nova palavra” inicia outra partida. O progresso fica apenas na sessão atual.
+- Um desafio fixo por dia em cada modo, igual para todos. A troca ocorre às 00:00 no horário de Brasília, inclusive com a página aberta. O botão Jogo do dia retoma a partida atual.
 
 Layout responsivo: quatro tabuleiros lado a lado no desktop e em duas colunas no celular. Fontes do Google Fonts são opcionais; fontes locais são usadas se não houver conexão.
 
@@ -27,7 +27,7 @@ O vocabulário usa a lista https://github.com/pythonprobr/palavras (MPL-2.0, tex
 
 A ampliação inclui os arquivos `lexico` e `conjugações` de https://github.com/fserb/pt-br (MIT, texto em `dicionario-fserb-LICENSE.txt`). Cada entrada é normalizada para maiúsculas sem acentos e aceita apenas se contiver exatamente cinco letras de A a Z. A união preserva as palavras anteriores e remove duplicatas. Não são geradas conjugações automaticamente por sufixos.
 
-- Após encerrar uma partida, qualquer letra no teclado físico ou virtual reabre as estatísticas até iniciar uma nova partida.
+- Após encerrar uma partida, qualquer letra no teclado físico ou virtual reabre as estatísticas até o próximo desafio diário.
 - Compartilhar baixa um PNG com os palpites, as cores e todas as respostas do modo atual. No Chutô⁸, a imagem organiza os oito tabuleiros em duas fileiras.
 
 ## Revisao lexical
@@ -38,4 +38,4 @@ A validacao considera verbetes originalmente em minusculas e flexoes autorizadas
 
 `dictionary-audit.json` registra todas as exclusoes e, para cada entrada mantida, uma grafia original e seu radical de origem. Os hashes das fontes tambem ficam no relatorio. As fontes VERO estao em `auditoria-fontes/`; seus creditos e termos LGPLv3/MPL estao em `dicionario-vero-LICENSE.txt`. Para repetir a auditoria, instale `spylls==0.1.7` em `.audit-tools` e execute `python audit-dictionary.py`.
 
-O sorteio esgota as 555 respostas antes de repetir e salva o historico compartilhado entre os modos neste navegador. Se o armazenamento estiver indisponivel, o historico dura apenas durante a pagina aberta.
+As respostas diárias são calculadas pela data de Brasília. Palpites, letras em edição, resultado e estatísticas ficam no localStorage, separados por data e modo. Se o armazenamento for bloqueado ou apagado, o progresso deixa de persistir.
