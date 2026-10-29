@@ -40,3 +40,5 @@ A validacao considera verbetes originalmente em minusculas e flexoes autorizadas
 `dictionary-audit.json` registra todas as exclusoes e, para cada entrada mantida, uma grafia original e seu radical de origem. Os hashes das fontes tambem ficam no relatorio. As fontes VERO estao em `auditoria-fontes/`; seus creditos e termos LGPLv3/MPL estao em `dicionario-vero-LICENSE.txt`. Para repetir a auditoria, instale `spylls==0.1.7` em `.audit-tools` e execute `python audit-dictionary.py`.
 
 As respostas diárias são calculadas pela data de Brasília. Palpites, letras em edição, resultado e estatísticas ficam no localStorage, separados por data e modo. Se o armazenamento for bloqueado ou apagado, o progresso deixa de persistir.
+
+Os quatro modos recebem 15 respostas distintas por dia (1 + 2 + 4 + 8). A agenda percorre todo o banco de 555 respostas antes de repetir, em ciclos de 37 dias, iguais para todos os jogadores.

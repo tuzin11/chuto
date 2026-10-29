@@ -118,3 +118,23 @@ test('desafio muda somente a meia-noite de Brasilia e independe do navegador', (
     assert.ok(today.every(word => dictionary.has(word)));
   }
 });
+
+
+test('daily modes use fifteen different answers with no overlap', () => {
+  for (let day = 0; day < 1000; day++) {
+    const date = new Date(Date.UTC(2026, 9, 29 + day)).toISOString().slice(0, 10);
+    const words = [1, 2, 4, 8].flatMap(mode => dailyTargets(date, mode));
+    assert.equal(words.length, 15);
+    assert.equal(new Set(words).size, 15, date);
+  }
+});
+
+test('all answers are consumed before repeating across games and days', () => {
+  const sequence = [];
+  for (let day = 0; sequence.length < answers.length * 2; day++) {
+    const date = new Date(Date.UTC(2026, 9, 29 + day)).toISOString().slice(0, 10);
+    sequence.push(...[1, 2, 4, 8].flatMap(mode => dailyTargets(date, mode)));
+  }
+  assert.equal(new Set(sequence.slice(0, answers.length)).size, answers.length);
+  assert.deepEqual(sequence.slice(answers.length, answers.length * 2), sequence.slice(0, answers.length));
+});

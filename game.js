@@ -14,8 +14,11 @@ function dailyDate(now = new Date()) {
 }
 function dailyTargets(day, mode, pool = answerPool) {
   const index = Math.floor((Date.parse(day + 'T00:00:00Z') - Date.UTC(2026, 9, 29)) / 86400000);
-  const offset = mode === 1 ? 0 : 1;
-  return Array.from({ length: mode }, (_, n) => pool[((index * 16 + offset + n) % pool.length + pool.length) % pool.length]);
+  // Disjoint slots: single [0], duet [1..2], quartet [3..6], octet [7..14].
+  // Advance through every answer before starting the next cycle.
+  const offset = { 1: 0, 2: 1, 4: 3, 8: 7 }[mode];
+  if (offset === undefined) throw new RangeError('Invalid game mode');
+  return Array.from({ length: mode }, (_, n) => pool[((index * 15 + offset + n) % pool.length + pool.length) % pool.length]);
 }
 function createWordDraw({ storage, random = Math.random, pool = answerPool } = {}) {
   const key = 'chuto-word-history-v1';

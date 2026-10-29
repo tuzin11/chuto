@@ -81,7 +81,7 @@ for (const [mode, tab, limit] of [[1, 0, 6], [2, 1, 7], [4, 2, 9], [8, 3, 13]]) 
   test(`mode ${mode}: finished game reopens stats on physical and virtual letters for the rest of the day`, async () => {
     const app = setup();
     if (tab) app.tabs[tab].listeners.click();
-    const targets = mode === 1 ? ['AMIGO'] : ['TERMO', 'PRAIA', 'LIVRO', 'SONHO', 'NUVEM', 'FESTA', 'VERDE', 'BRISA'].slice(0, mode);
+    const targets = require('./game.js').dailyTargets('2026-10-29', mode);
     assert.equal(app.board().length, mode);
     assert.equal(app.board()[0].children.at(-1).children.length, limit * 5);
     for (const word of targets) await guess(app, word);
@@ -176,8 +176,8 @@ for (const [mode, tab] of [[1, 0], [2, 1], [4, 2], [8, 3]]) {
     for (let i = 0; i < 5; i++) await app.get('keyboard').querySelectorAll('[data-key]').find(key => key.dataset.key === 'BACKSPACE').listeners.click();
     const pending = guess(app, 'TERMO');
     await pending;
-    check(1, mode === 1 ? [] : [0]);
-    check(1, mode === 1 ? [] : [0]);
+    check(1, mode === 2 ? [0] : []);
+    check(1, mode === 2 ? [0] : []);
   });
 }
 
