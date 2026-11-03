@@ -46,3 +46,5 @@ Os quatro modos recebem 15 respostas distintas por dia (1 + 2 + 4 + 8). A agenda
 A ampliação adiciona 705 palavras selecionadas para o português brasileiro, como ABRIR, AIPIM, CHUVA, HOMEM, LEITE e SAMBA. `answer-expansion.json` registra a grafia e o radical de cada adição, conferidos na auditoria VERO pt_BR local. A lista de respostas continua separada do dicionário de palpites.
 
 Em 29/10/2026, os desafios foram renovados a pedido do autor. O armazenamento diário usa a versão v2 para iniciar os novos jogos, preservando as estatísticas acumuladas e o modo selecionado. Depois desse reset, recarregar a página continua restaurando a mesma partida até a meia-noite de Brasília.
+
+Em 03/11/2026, a agenda passou a usar Fisher-Yates com semente fixa para embaralhar todo o banco antes de distribuir as palavras entre os dias e modos. Todos recebem as mesmas respostas, sem seguir a ordem do dicion?rio e sem repetir antes de esgotar o banco. Os jogos a partir dessa data usam armazenamento v3 para reiniciar os desafios, preservando estat?sticas e modo selecionado.

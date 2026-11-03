@@ -153,3 +153,18 @@ test('expanded answer bank has lexical evidence in Brazilian Portuguese', () => 
     assert.deepEqual(evidence, audit.retained[word]);
   }
 });
+
+
+test('daily schedule shuffles an alphabetic pool without mutating it', () => {
+  const pool = [...new Set(answers)].sort();
+  const original = [...pool];
+  const date = '2026-11-03';
+  const words = [1, 2, 4, 8].flatMap(mode => dailyTargets(date, mode, pool));
+  assert.deepEqual(pool, original);
+  assert.equal(new Set(words).size, 15);
+  assert.notDeepEqual(words, [...words].sort());
+  assert.notDeepEqual(words, [...words].sort().reverse());
+  assert.deepEqual(words, [1, 2, 4, 8].flatMap(mode => dailyTargets(date, mode, pool)));
+  const oldIndex = 5 * 15;
+  assert.ok(words.every((word, i) => word !== answers[(oldIndex + i + 15) % answers.length]));
+});

@@ -279,3 +279,23 @@ test('explicit daily reset ignores old daily games while preserving statistics',
   assert.equal(row(app.board()[0], 0), SINGLE);
   assert.equal(app.get('stats-games').textContent, 4);
 });
+
+
+test('November reset discards v2 progress and persists v3 across reloads', async () => {
+  const day = '2026-11-03';
+  const clock = { now: Date.parse(day + 'T15:00:00Z') };
+  const target = dailyTargets(day, 1)[0];
+  const storage = new Map([
+    ['chuto-daily-v2:' + day, JSON.stringify([[1, { targets: [target], finished: true, guesses: [{ word: target }] }]])],
+    ['chuto-stats-v1:1', JSON.stringify({ games: 3, wins: 2, streak: 1, best: 2, distribution: [1, 1, 0, 0, 0, 0, 1] })]
+  ]);
+  let app = setup({ storage, clock });
+  assert.equal(row(app.board()[0], 0), '     ');
+  assert.equal(app.get('keyboard').hidden, false);
+  await guess(app, target);
+  assert.equal(app.get('stats-games').textContent, 4);
+  assert.ok(storage.has('chuto-daily-v3:' + day));
+  app = setup({ storage, clock });
+  assert.equal(row(app.board()[0], 0), target);
+  assert.equal(app.get('stats-games').textContent, 4);
+});
