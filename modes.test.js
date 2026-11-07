@@ -305,3 +305,45 @@ test('November reset discards v2 progress and persists v3 across reloads', async
   assert.equal(row(app.board()[0], 0), target);
   assert.equal(app.get('stats-games').textContent, 4);
 });
+
+for (const [mode, tab] of [[2, 1], [4, 2], [8, 3]]) {
+  test(`mode ${mode}: keyboard only shows clues for remaining words after guesses, solves and reload`, async () => {
+    const storage = new Map();
+    let app = setup({ storage });
+    app.tabs[tab].listeners.click();
+    const targets = dailyTargets('2026-10-29', mode);
+    const states = targets.map(() => ({}));
+    const solved = new Set();
+    const rank = { absent: 1, present: 2, correct: 3 };
+    const palette = { correct: 'var(--green)', present: 'var(--yellow)', absent: 'var(--black)' };
+    const check = () => {
+      const remaining = states.filter((_, n) => !solved.has(n));
+      for (const key of app.get('keyboard').querySelectorAll('[data-key]')) {
+        if (key.dataset.key.length > 1) continue;
+        const segments = remaining.map((state, n) => `${palette[state[key.dataset.key]] || '#303832'} ${n / remaining.length * 100}% ${(n + 1) / remaining.length * 100}%`);
+        assert.equal(key.style.background, segments.length ? `linear-gradient(to right, ${segments.join(',')})` : '', key.dataset.key);
+      }
+    };
+    const play = async word => {
+      await guess(app, word);
+      targets.forEach((target, n) => {
+        if (solved.has(n)) return;
+        const colors = require('./game.js').scoreGuess(word, target);
+        [...word].forEach((letter, i) => {
+          if ((rank[states[n][letter]] || 0) < rank[colors[i]]) states[n][letter] = colors[i];
+        });
+        if (word === target) solved.add(n);
+      });
+      check();
+    };
+    check();
+    await play(targets[1]); // Remove a middle segment while retaining board order.
+    app = setup({ storage });
+    app.tabs[tab].listeners.click();
+    check();
+    const extraGuess = ['NUVEM', 'FESTA', 'VERDE'].find(word => !targets.includes(word));
+    await play(extraGuess);
+    for (const target of targets.filter((_, n) => n !== 1)) await play(target);
+    assert.equal(app.get('keyboard').hidden, true);
+  });
+}

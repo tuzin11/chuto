@@ -242,14 +242,15 @@ if (typeof document !== 'undefined') {
       tile.className = 'tile' + (past ? ' ' + past.colors[col] : !finished && !solved[n] && row === guesses.length ? ' active' + (col === Math.min(cursor, 4) ? ' selected' : '') : '');
       tile.setAttribute('aria-label', `Palavra ${n + 1}, tentativa ${row + 1}, letra ${col + 1}: ${tile.textContent || 'vazia'}${past ? ', ' + ({ correct: 'posição correta', present: 'outra posição', absent: 'ausente' })[past.colors[col]] : ''}`);
     });
+    const activeKeys = boardKeys.filter((_, n) => !solved[n]);
     keyboard.querySelectorAll('[data-key]').forEach(key => {
       key.className = 'key' + (key.dataset.key.length > 1 ? ' wide' : '');
       key.style.background = ''; key.style.color = '';
       if (mode === 1) { if (boardKeys[0][key.dataset.key]) key.classList.add(boardKeys[0][key.dataset.key]); }
       else if (key.dataset.key.length === 1) {
         const palette = { correct: 'var(--green)', present: 'var(--yellow)', absent: 'var(--black)' };
-        const segments = boardKeys.map((states, n) => `${palette[states[key.dataset.key]] || '#303832'} ${n / mode * 100}% ${(n + 1) / mode * 100}%`);
-        key.style.background = `linear-gradient(to right, ${segments.join(',')})`;
+        const segments = activeKeys.map((states, n) => `${palette[states[key.dataset.key]] || '#303832'} ${n / activeKeys.length * 100}% ${(n + 1) / activeKeys.length * 100}%`);
+        key.style.background = segments.length ? `linear-gradient(to right, ${segments.join(',')})` : '';
         key.style.color = '#fff';
       }
     });
