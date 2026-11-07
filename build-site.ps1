@@ -17,6 +17,14 @@ foreach ($file in $files) {
   Copy-Item -LiteralPath (Join-Path $siteRoot $file) -Destination (Join-Path $publishRoot $file) -Force
 }
 [IO.File]::WriteAllText((Join-Path $publishRoot '.nojekyll'), '', $utf8)
+# Keep the extracted local site in sync when it exists.
+$localRoot = Join-Path $siteRoot 'cinco-site'
+if (Test-Path -LiteralPath $localRoot) {
+  foreach ($file in $files) {
+    Copy-Item -LiteralPath (Join-Path $publishRoot $file) -Destination (Join-Path $localRoot $file) -Force
+  }
+  [IO.File]::WriteAllText((Join-Path $localRoot '.nojekyll'), '', $utf8)
+}
 $archiveFiles = @($files | ForEach-Object { Join-Path $publishRoot $_ })
 $archiveFiles += Join-Path $publishRoot '.nojekyll'
 Compress-Archive -LiteralPath $archiveFiles -DestinationPath (Join-Path $siteRoot 'cinco-site.zip') -Force
