@@ -365,7 +365,6 @@ if (typeof document !== 'undefined') {
     saveSession();
     sessions.set(mode, { targets, solved, boardKeys, guesses, current, cursor, finished, stats, lastResult, text: message.textContent, success: message.classList.contains('success') });
     mode = next;
-    try { wordStorage.setItem('chuto-active-mode-v1', String(mode)); } catch (_) {}
     limit = mode === 1 ? 6 : mode === 2 ? 7 : mode === 4 ? 9 : 13;
     document.body.dataset.mode = mode;
     document.querySelectorAll('[data-mode]').forEach(tab => {
@@ -416,14 +415,7 @@ if (typeof document !== 'undefined') {
   document.getElementById('help').addEventListener('click', () => dialog.showModal());
   document.getElementById('close-help').addEventListener('click', () => dialog.close());
   document.getElementById('start-playing').addEventListener('click', () => dialog.close());
-  let initialMode = 1;
-  try { initialMode = Number(wordStorage.getItem('chuto-active-mode-v1')) || 1; } catch (_) {}
   restart();
-  if ([2, 4, 8].includes(initialMode)) {
-    statsDialog.close();
-    switchMode(initialMode);
-    if (finished) showStats();
-  }
   if (typeof setInterval === 'function') setInterval(checkDay, 1000);
   document.addEventListener('visibilitychange', checkDay);
   if (window.addEventListener) window.addEventListener('focus', checkDay);

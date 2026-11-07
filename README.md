@@ -4,7 +4,7 @@ Jogo de palavras em português para navegador de computador. Abra `index.html` d
 
 - Chutô: uma palavra em seis tentativas. Chutô²: duas palavras em sete tentativas. Chutô⁴: quatro palavras em nove tentativas. Chutô⁸: oito palavras em treze tentativas.
 - Nos modos paralelos, cada palpite vale para todas as palavras ainda não resolvidas. As faixas do teclado mostram as pistas de cada tabuleiro na ordem de leitura.
-- Ao concluir o jogo, o teclado fica oculto e Compartilhar é a única ação da partida. O modo selecionado também é restaurado ao reabrir a página.
+- Ao concluir o jogo, o teclado fica oculto e Compartilhar é a única ação da partida. Ao abrir ou recarregar a página, o jogo sempre inicia no Chutô de uma palavra. O progresso dos outros modos continua salvo.
 - Progresso e estatísticas de cada modo ficam salvos neste navegador, inclusive ao recarregar ou fechar a página.
 - Verde: letra na posição correta; amarelo: letra em outra posição; preto: letra ausente.
 - Letras repetidas respeitam a quantidade de ocorrências na resposta.

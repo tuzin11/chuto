@@ -245,18 +245,24 @@ test('completed game stays locked and shareable in a new browser session', async
 });
 
 
-test('reload resumes the selected mode and its completed daily game', async () => {
-  const storage = new Map();
+test('reload opens single mode and preserves progress in other modes', async () => {
+  const storage = new Map([['chuto-active-mode-v1', '2']]);
   let app = setup({ storage });
+  assert.equal(app.board().length, 1);
   app.tabs[1].listeners.click();
   await guess(app, DUET_FIRST);
   app = setup({ storage });
+  assert.equal(app.board().length, 1);
+  app.tabs[1].listeners.click();
   assert.equal(app.board().length, 2);
   assert.equal(row(app.board()[1], 0), DUET_FIRST);
   await guess(app, DUET_SECOND);
   app = setup({ storage });
+  assert.equal(app.board().length, 1);
+  app.tabs[1].listeners.click();
   assert.equal(app.board().length, 2);
   assert.equal(row(app.board()[1], 1), DUET_SECOND);
+  app.get('show-stats').listeners.click();
   assert.equal(app.get('stats-dialog').open, true);
   assert.equal(app.get('keyboard').hidden, true);
   assert.equal(app.get('share-result').hidden, false);
