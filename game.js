@@ -143,6 +143,14 @@ if (typeof document !== 'undefined') {
   const statsDialog = document.getElementById('stats-dialog');
   let mode = 1, limit = 6, targets = [], solved = [], boardKeys = [];
   const sessions = new Map();
+  let tuzinAudio;
+  function playTuzinAudio() {
+    try {
+      tuzinAudio ||= new Audio('gremio-radio-globo.mp3');
+      tuzinAudio.currentTime = 0;
+      tuzinAudio.play()?.catch(() => {});
+    } catch (_) { /* Keep the game usable if audio is unavailable. */ }
+  }
   let wordStorage;
   try { wordStorage = window.localStorage; } catch (_) {}
   let day = dailyDate();
@@ -291,7 +299,10 @@ if (typeof document !== 'undefined') {
     if (reopenFinishedStats()) return;
     if (key === 'ENTER') {
       if (!/^[A-Z]{5}$/.test(current)) return say('Complete as cinco letras antes de confirmar.');
-      if (current === 'TUZIN') return say('O GOAT.');
+      if (current === 'TUZIN') {
+        playTuzinAudio();
+        return say('O GOAT.');
+      }
       if (!dictionary.has(current)) return say('Palavra fora do dicionário. Tente outra.');
       if (guesses.some(g => g.word === current)) return say('Você já tentou essa palavra. Experimente outra.');
       const colors = targets.map((target, n) => solved[n] ? null : scoreGuess(current, target));

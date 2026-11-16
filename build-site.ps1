@@ -12,7 +12,7 @@ foreach ($asset in $assetNames) {
 $utf8 = New-Object System.Text.UTF8Encoding($false)
 [IO.File]::WriteAllText($htmlPath, $html, $utf8)
 New-Item -ItemType Directory -Path $publishRoot -Force | Out-Null
-$files = @('index.html', 'style.css', 'dictionary.js', 'game.js', 'favicon.svg', 'dicionario-LICENSE.txt', 'dicionario-fserb-LICENSE.txt', 'dicionario-vero-LICENSE.txt')
+$files = @('index.html', 'style.css', 'dictionary.js', 'game.js', 'favicon.svg', 'gremio-radio-globo.mp3', 'dicionario-LICENSE.txt', 'dicionario-fserb-LICENSE.txt', 'dicionario-vero-LICENSE.txt')
 foreach ($file in $files) {
   Copy-Item -LiteralPath (Join-Path $siteRoot $file) -Destination (Join-Path $publishRoot $file) -Force
 }
