@@ -347,3 +347,23 @@ for (const [mode, tab] of [[2, 1], [4, 2], [8, 3]]) {
     assert.equal(app.get('keyboard').hidden, true);
   });
 }
+
+
+test('statistics closes on backdrop clicks on every side and stays open inside', () => {
+  const app = setup();
+  const dialog = app.get('stats-dialog');
+  dialog.getBoundingClientRect = () => ({ left: 100, right: 500, top: 100, bottom: 600 });
+  const click = (target, clientX, clientY) => dialog.listeners.click({ target, clientX, clientY });
+  app.get('show-stats').listeners.click();
+  click(dialog, 300, 300);
+  assert.equal(dialog.open, true);
+  click(app.get('stats-games'), 300, 300);
+  assert.equal(dialog.open, true);
+  for (const [x, y] of [[99, 300], [501, 300], [300, 99], [300, 601]]) {
+    click(dialog, x, y);
+    assert.equal(dialog.open, false);
+    app.get('show-stats').listeners.click();
+  }
+  app.get('close-stats').listeners.click();
+  assert.equal(dialog.open, false);
+});

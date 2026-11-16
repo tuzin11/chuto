@@ -413,6 +413,11 @@ if (typeof document !== 'undefined') {
   document.getElementById('share-result').addEventListener('click', shareGame);
   document.getElementById('show-stats').addEventListener('click', () => { if (!revealing) showStats(); });
   document.getElementById('close-stats').addEventListener('click', () => statsDialog.close());
+  statsDialog.addEventListener('click', event => {
+    if (event.target !== statsDialog) return;
+    const bounds = statsDialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) statsDialog.close();
+  });
   document.getElementById('help').addEventListener('click', () => dialog.showModal());
   document.getElementById('close-help').addEventListener('click', () => dialog.close());
   document.getElementById('start-playing').addEventListener('click', () => dialog.close());
